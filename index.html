@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Only Wizard</title>
+    <link rel="icon" href="images/logo/favicon.png" type="image/png">
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <!-- API Яндекс.Карт -->
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=341618c9-a755-43e5-a494-4eb0f43dc432&lang=ru_RU" type="text/javascript"></script>
+    <!-- Основной CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- =========================================================================
+                                    ШАПКА САЙТА
+    ========================================================================== -->
+    <header class="site-header">
+        <div class="container header-container">
+            <button class="burger-menu" aria-label="Открыть меню" aria-expanded="false" type="button">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </button>
+
+            <nav class="header-nav header-nav-left desktop-nav" aria-label="Левая навигация">
+                <a href="#block2">НАШИ КЛУБЫ</a>
+                <a href="https://t.me/WizardLoungeBar" target="_blank" rel="noopener noreferrer">LOUNGE BAR</a>
+            </nav>
+
+            <div class="header-logo">
+                <a href="/" aria-label="На главную Only Wizard">
+                    <img src="images/logo/only-wizard-logo.png" alt="Логотип Only Wizard">
+                </a>
+            </div>
+
+             <div class="header-nav-right desktop-nav" role="navigation" aria-label="Правая навигация и действия">
+                <a href="#block8">КОНТАКТЫ</a>
+                <a href="https://vk.com/vyynoos" target="_blank" rel="noopener noreferrer" class="btn btn-primary">ФК ONLY WIZARD</a>
+             </div>
+
+            <nav class="mobile-menu" id="mobileMenu" aria-label="Мобильное меню">
+                 <a href="#block2">НАШИ КЛУБЫ</a>
+                 <a href="https://t.me/WizardLoungeBar" target="_blank" rel="noopener noreferrer">LOUNGE BAR</a>
+                 <a href="https://vk.com/vyynoos" target="_blank" rel="noopener noreferrer">ФК ONLY WIZARD</a>
+                 <a href="#block8">КОНТАКТЫ</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- =========================================================================
+                                    ОСНОВНОЕ СОДЕРЖИМОЕ
+    ========================================================================== -->
+    <main>
+        <!-- ======================= Блок 1: Вступление ======================= -->
+        <section id="block1" class="intro-block section-padding" aria-labelledby="intro-title">
+            <div class="container intro-container">
+                <div class="intro-text-content">
+                    <h1 class="intro-heading" id="intro-title">ONLY WIZARD</h1>
+                    <p class="intro-paragraph">
+                        Добро пожаловать в Only Wizard – твое новое место силы в мире киберспорта!
+                        Мы создали не просто клуб, а настоящее комьюнити для тех, кто живет игрой.
+                        У нас ты найдешь топовое железо, стильную атмосферу ретро-футуризма и единомышленников, готовых разделить с тобой радость побед.
+                        Наши площадки в Казани и Зеленодольске оснащены передовым оборудованием, мощными игровыми станциями и удобными зонами отдыха.
+                        Мы стремимся создать идеальные условия как для профессиональных тренировок, так и для любительских игр.
+                        Откройте для себя новый стандарт киберспортивного пространства с Only Wizard.
+                        Приходи отточить скилл, поучаствовать в турнирах или просто отлично провести время с друзьями.
+                        Магия киберспорта начинается здесь!
+                    </p>
+                </div>
+                <div class="intro-image-content">
+                    <img src="images/club/komanda.jpg" alt="Команда киберспортивного клуба Only Wizard">
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= Блок 2: Форматы / Филиалы ======================= -->
+        <section id="block2" class="clubs-block section-padding" aria-labelledby="clubs-title-h2">
+            <div class="container">
+                <h2 class="section-title" id="clubs-title-h2">Форматы ONLY WIZARD</h2>
+
+                <div class="location-tabs" role="tablist" aria-label="Выбор филиала клуба">
+                    <button class="tab-button active" data-location="yamasheva" role="tab" aria-selected="true" aria-controls="content-yamasheva" type="button" id="tab-yamasheva-club">Казань (Ямашева)</button>
+                    <button class="tab-button" data-location="prospekt" role="tab" aria-selected="false" aria-controls="content-prospekt" type="button" id="tab-prospekt-club">Казань (Проспект)</button>
+                    <button class="tab-button" data-location="zelenodolsk" role="tab" aria-selected="false" aria-controls="content-zelenodolsk" type="button" id="tab-zelenodolsk-club">Зеленодольск</button>
+                </div>
+
+                <div class="location-content-area">
+                    <!-- Контент: Казань (Ямашева) -->
+                    <div class="location-content active" id="content-yamasheva" role="tabpanel" aria-labelledby="tab-yamasheva-club">
+                        <div class="content-main">
+                            <div class="content-text">
+                                <h3>Клуб на Ямашева</h3>
+                                <p>Киберспортивный компьютерный клуб в г. Казань (Ново-Савиновский район)</p>
+                                <div class="stats-grid">
+                                    <div class="stat-item"><span class="stat-label">Количество ПК:</span><span class="stat-value">45</span></div>
+                                    <div class="stat-item"><span class="stat-label">5 игровых зон:</span><span class="stat-value">STANDART<br>BOOST ZONE<br>BOOTCAMP</span></div>
+                                    <div class="stat-item"><span class="stat-label">Отдельные зоны:</span><span class="stat-value">LOUNGE<br>ULTRA VIP</span></div>
+                                    <div class="stat-item"><span class="stat-label">PlayStation 4:</span><span class="stat-value">Fat, Slim, Pro</span></div>
+                                    <div class="stat-item"><span class="stat-label">PlayStation 5:</span><span class="stat-value">Digital, DualSense</span></div>
+                                </div>
+                                <div class="content-sub-tabs">
+                                    <button class="sub-tab-button" data-content="price" type="button">Цены</button>
+                                    <button class="sub-tab-button" data-content="hardware" type="button">Железо</button>
+                                    <a href="games.html" class="sub-tab-link" rel="noopener noreferrer">Игры</a>
+                                    <button class="sub-tab-button" data-content="bond" type="button">Связаться</button>
+                                </div>
+                                <div class="sub-content" data-type="price"><img src="images/price/yamasheva.jpg" alt="Прайс-лист Ямашева"></div>
+                                <div class="sub-content" data-type="hardware">
+                                    <h4>Железо</h4><p>Выберите зону, чтобы увидеть конфигурацию:</p>
+                                    <div class="zone-selectors">
+                                        <button class="zone-selector active" data-zone="standart" style="background-color: #3498db;" title="STANDART" type="button"></button>
+                                        <button class="zone-selector" data-zone="boost" style="background-color: #e74c3c;" title="BOOST ZONE" type="button"></button>
+                                        <button class="zone-selector" data-zone="bootcamp" style="background-color: #f1c40f;" title="BOOTCAMP" type="button"></button>
+                                        <button class="zone-selector" data-zone="lounge" style="background-color: #9b59b6;" title="LOUNGE" type="button"></button>
+                                        <button class="zone-selector" data-zone="ultravip" style="background-color: #e67e22;" title="ULTRA VIP" type="button"></button>
+                                        <button class="zone-selector" data-zone="squad" style="background-color: #22e62c;" title="SQUAD" type="button"></button>
+                                        <button class="zone-selector" data-zone="duo" style="background-color: #ea00ff;" title="DUO" type="button"></button>
+                                    </div>
+                                    <div class="zone-hardware-details">
+                                        <div class="zone-info active" data-zone-details="standart"><h5>Конфигурация: STANDART</h5><ul><li><strong>CPU:</strong> Intel Core i5-11400F</li><li><strong>GPU:</strong> NVIDIA GeForce RTX 3060</li><li><strong>RAM:</strong> 16 GB DDR4</li><li><strong>Монитор:</strong> 27" ASUS 240Hz</li><li><strong>Периферия:</strong> Logitech G Pro X Keyboard, G Pro Wireless Mouse, G Pro X Headset</li></ul></div>
+                                        <div class="zone-info" data-zone-details="boost"><h5>Конфигурация: BOOST ZONE</h5><ul><li><strong>CPU:</strong> Ryzen 5 3600</li><li><strong>GPU:</strong> RTX 2060 Super</li><li><strong>RAM:</strong> 16 GB DDR4</li><li><strong>Монитор:</strong> 27" ASUS 165Hz</li><li><strong>Периферия:</strong> Razer Huntsman V2, Viper Ultimate, BlackShark V2 Pro</li></ul></div>
+                                        <div class="zone-info" data-zone-details="bootcamp"><h5>Конфигурация: BOOTCAMP</h5><ul><li><strong>CPU:</strong> Ryzen 5 5600</li><li><strong>GPU:</strong> RTX 3060</li><li><strong>RAM:</strong> 32 GB DDR4</li><li><strong>Монитор:</strong> 27" ASUS 165Hz</li><li><strong>Периферия:</strong> Razer Huntsman V2, Viper Ultimate, BlackShark V2 Pro</li></ul></div>
+                                        <div class="zone-info" data-zone-details="lounge"><h5>Конфигурация: LOUNGE</h5><ul><li><strong>CPU:</strong> Ryzen 5 3600</li><li><strong>GPU:</strong> RTX 2060 Super</li><li><strong>RAM:</strong> 32 GB DDR4</li><li><strong>Монитор:</strong> 24" ASUS 165Hz</li><li><strong>Периферия:</strong> Razer Huntsman V2, Viper Ultimate, BlackShark V2 Pro</li></ul></div>
+                                        <div class="zone-info" data-zone-details="ultravip"><h5>Конфигурация: ULTRA VIP</h5><ul><li><strong>CPU:</strong> Ryzen 5 7500F</li><li><strong>GPU:</strong> RTX 4060 TI</li><li><strong>RAM:</strong> 32 GB DDR 5</li><li><strong>Монитор:</strong> 27" ASUS 280Hz</li><li><strong>Периферия:</strong> Razer Huntsman V2, Viper Ultimate, BlackShark V2 Pro</li></ul></div>
+                                        <div class="zone-info" data-zone-details="squad"><h5>Конфигурация: SQUAD</h5><ul><li><strong>CPU:</strong> Ryzen 5 7500F</li><li><strong>GPU:</strong> RTX 4060 TI</li><li><strong>RAM:</strong> 32 GB DDR 5</li><li><strong>Монитор:</strong> 27" ASUS 280Hz</li><li><strong>Периферия:</strong> Razer Huntsman V2, Viper Ultimate, BlackShark V2 Pro</li></ul></div>
+                                        <div class="zone-info" data-zone-details="duo"><h5>Конфигурация: DUO</h5><ul><li><strong>CPU:</strong> Ryzen 5 7500F</li><li><strong>GPU:</strong> RTX 4060 TI</li><li><strong>RAM:</strong> 32 GB DDR 5</li><li><strong>Монитор:</strong> 27" MSI 300Hz</li><li><strong>Периферия:</strong> Razer Huntsman V2, Viper Ultimate, BlackShark V2 Pro</li></ul></div>
+                                    </div>
+                                </div>
+
+                                <div class="sub-content" data-type="bond">
+                                    <h4>Связаться с нами (Ямашева)</h4>
+                                    <p>Вы можете связаться с нами через удобные для вас мессенджеры и социальные сети:</p>
+                                    <div class="contact-socials-inline">
+                                        <a href="https://vk.com/wizard_of_gaming" target="_blank" rel="noopener noreferrer" title="VK">
+                                            <img src="images/icons/vk.svg" alt="VK">
+                                        </a>
+                                    <a href="https://wa.me/79179150033" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+                                        <img src="images/icons/whatsapp.svg" alt="WhatsApp">
+                                    </a>
+                                        <a href="https://t.me/onlywizard_bot" target="_blank" rel="noopener noreferrer" title="Telegram">
+                                            <img src="images/icons/tg.svg" alt="Telegram">
+                                        </a>
+                                    </div>
+                                    <p>Или позвоните нам по телефону: <a href="tel:+79179150033">+7 (917) 915-00-33</a>
+                                    </p>
+                                </div>
+
+                            </div>
+                            <div class="content-image"><img src="images/club/yamasheva.png" alt="3D макет клуба Only Wizard на Ямашева"></div>
+                        </div>
+                    </div>
+
+                    <!-- Контент: Казань (Проспект) -->
+                    <div class="location-content" id="content-prospekt" role="tabpanel" aria-labelledby="tab-prospekt-club">
+                         <div class="content-main">
+                            <div class="content-text">
+                                <h3>Клуб на Проспекте</h3>
+                                <p>Киберспортивный компьютерный клуб в г. Казань (Горки)</p>
+                                <div class="stats-grid">
+                                    <div class="stat-item"><span class="stat-label">Количество ПК:</span><span class="stat-value">34</span></div>
+                                    <div class="stat-item"><span class="stat-label">3 игровые зоны:</span><span class="stat-value">STANDART<br>DUO<br>VIP</span></div>
+                                    <div class="stat-item"><span class="stat-label">PlayStation 5:</span><span class="stat-value">Digital<br>DualSense<br>Pro</span></div>
+                                </div>
+                                <div class="content-sub-tabs">
+                                    <button class="sub-tab-button" data-content="price" type="button">Цены</button>
+                                    <button class="sub-tab-button" data-content="hardware" type="button">Железо</button>
+                                    <a href="games.html" class="sub-tab-link" rel="noopener noreferrer">Игры</a>
+                                    <button class="sub-tab-button" data-content="bond" type="button">Связаться</button>
+                                </div>
+                                <div class="sub-content" data-type="price"><img src="images/price/prospekt.jpg" alt="Прайс-лист Проспект"></div>
+                                <div class="sub-content" data-type="hardware">
+                                    <h4>Железо</h4><p>Выберите зону, чтобы увидеть конфигурацию:</p>
+                                    <div class="zone-selectors">
+                                       <button class="zone-selector active" data-zone="standart" style="background-color: #3498db;" title="STANDART" type="button"></button>
+                                       <button class="zone-selector" data-zone="vip" style="background-color: #e67e22;" title="VIP" type="button"></button>
+                                       <button class="zone-selector" data-zone="duo" style="background-color: #ea00ff;" title="DUO" type="button"></button>
+                                   </div>
+                                   <div class="zone-hardware-details">
+                                       <div class="zone-info active" data-zone-details="standart"><h5>Конфигурация: STANDART (20 компьютеров)</h5><ul><li><strong>CPU:</strong> Intel Core i5 - 10400F OEM</li><li><strong>GPU:</strong> Nvidia GeForce RTX 3060 12Gb</li><li><strong>RAM:</strong> 16 GB DDR4</li><li><strong>Монитор:</strong> 24" ASUS 280Hz</li><li><strong>Периферия:</strong> Наушники: HyperX Cloud Alpha S<br>Мышь: Logitech G102<br>Клавиатура: Red Square</li></ul></div>
+                                       <div class="zone-info" data-zone-details="vip"><h5>Конфигурация: VIP (10 компьютеров)</h5><ul><li><strong>CPU:</strong> Intel Core i5 - 10400F OEM</li><li><strong>GPU:</strong> Nvidia GeForce RTX 3060Ti 8Gb</li><li><strong>RAM:</strong> 16 GB DDR 4</li><li><strong>Монитор:</strong> 27" ASUS 280Hz</li><li><strong>Периферия:</strong> Наушники: Cloud Alpha S<br>Мышь: Logitech G403 hero<br>Клавиатура: HyperX Alloy Origins Core (короткая)</li></ul></div>
+                                       <div class="zone-info" data-zone-details="duo"><h5>Конфигурация: DUO (2х2): (4 компьютера)</h5><ul><li><strong>CPU:</strong> Intel Core i5 - 10400F OEM</li><li><strong>GPU:</strong> Nvidia GeForce RTX 3060 12Gb</li><li><strong>RAM:</strong> 16 GB DDR 4</li><li><strong>Монитор:</strong> 24" ASUS 280Hz</li><li><strong>Периферия:</strong> Наушники: HyperX Cloud Alpha S<br>Мышь: Logitech G102<br>Клавиатура: Red Square</li></ul></div>
+                                   </div>
+                                </div>
+
+                                <div class="sub-content" data-type="bond">
+                                    <h4>Связаться с нами (Проспект)</h4>
+                                    <p>Вы можете связаться с нами через удобные для вас мессенджеры и социальные сети:</p>
+                                    <div class="contact-socials-inline">
+                                        <a href="https://vk.com/wizard_gorki" target="_blank" rel="noopener noreferrer" title="VK">
+                                            <img src="images/icons/vk.svg" alt="VK">
+                                        </a>
+                                        <a href="https://wa.me/79033140033" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+                                            <img src="images/icons/whatsapp.svg" alt="WhatsApp">
+                                        </a>
+                                        <a href="https://t.me/onlywizard_gorki_bot" target="_blank" rel="noopener noreferrer" title="Telegram">
+                                            <img src="images/icons/tg.svg" alt="Telegram">
+                                        </a>
+                                    </div>
+                                        <p>Или позвоните нам по телефону: <a href="tel:+79033140033">+7 (903) 314-00-33</a></p>
+                                </div>
+                            </div>
+                            <div class="content-image"><img src="images/club/prospekt.png" alt="3D макет клуба Only Wizard на Проспекте"></div>
+                        </div>
+                    </div>
+
+                    <!-- Контент: Зеленодольск -->
+                    <div class="location-content" id="content-zelenodolsk" role="tabpanel" aria-labelledby="tab-zelenodolsk-club">
+                         <div class="content-main">
+                            <div class="content-text">
+                                <h3>Клуб в Зеленодольске</h3>
+                                <p>Киберспортивный компьютерный клуб в г. Зеленодольск</p>
+                                <div class="stats-grid">
+                                    <div class="stat-item"><span class="stat-label">Количество ПК:</span><span class="stat-value">36</span></div>
+                                    <div class="stat-item"><span class="stat-label">3 игровые зоны:</span><span class="stat-value">STANDART<br>LOUNGE<br>DUO</span></div>
+                                    <div class="stat-item"><span class="stat-label">PlayStation 5:</span><span class="stat-value">Slim, Pro</span></div>
+                                </div>
+                                <div class="content-sub-tabs">
+                                    <button class="sub-tab-button" data-content="price" type="button">Цены</button>
+                                    <button class="sub-tab-button" data-content="hardware" type="button">Железо</button>
+                                    <a href="games.html" class="sub-tab-link" rel="noopener noreferrer">Игры</a>
+                                    <button class="sub-tab-button" data-content="bond" type="button">Связаться</button>
+                                </div>
+                                <div class="sub-content" data-type="price"><img src="images/price/zelenodolsk.jpg" alt="Прайс-лист Проспект"></div>
+                                <div class="sub-content" data-type="hardware">
+                                   <h4>Железо</h4><p>Выберите зону, чтобы увидеть конфигурацию:</p>
+                                   <div class="zone-selectors">
+                                       <button class="zone-selector active" data-zone="standart" style="background-color: #3498db;" title="STANDART" type="button"></button>
+                                       <button class="zone-selector" data-zone="lounge" style="background-color: #e67e22;" title="LOUNGE" type="button"></button>
+                                       <button class="zone-selector" data-zone="duo" style="background-color: #ea00ff;" title="DUO" type="button"></button>
+                                   </div>
+                                   <div class="zone-hardware-details">
+                                       <div class="zone-info active" data-zone-details="standart"><h5>Конфигурация: STANDART (10 компьютеров)</h5><ul><li><strong>CPU:</strong> Intel Core i5-9400F</li><li><strong>GPU:</strong> GIGABYTE GeForce RTX 2060 D6 6G</li><li><strong>RAM:</strong> 16 GB DDR4</li><li><strong>Монитор:</strong> 24" ASUS Gaming 144Hz</li><li><strong>Периферия:</strong> Наушники: Fifine H6 Gaming Headsets<br>Мышь: Logitech G102<br>Клавиатура: Red Square Kyrox TKL Classic<br>Коврик HyperX L Size (HX-L)</li></ul></div>
+                                       <div class="zone-info" data-zone-details="lounge"><h5>Конфигурация: LOUNGE (20 компьютеров)</h5><ul><li><strong>CPU:</strong> AMD Ryzen 5 3600 OEM</li><li><strong>GPU:</strong> RTX 2060 16GB</li><li><strong>RAM:</strong> 16 GB DDR 4</li><li><strong>Монитор:</strong> 27" ASUS Gaming 165Hz</li><li><strong>Периферия:</strong> Наушники: ARENA DARK PROJECT<br>Мышь: Logitech G102<br>Клавиатура: A4Tech Bloody S87<br>Коврик Wizard</li></ul></div>
+                                       <div class="zone-info" data-zone-details="duo"><h5>Конфигурация: DUO: (6 компьютеров)</h5><ul><li><strong>CPU:</strong> Intel Core i5-10400F OEM</li><li><strong>GPU:</strong> RTX 3060 12GB</li><li><strong>RAM:</strong> 16 GB DDR 4</li><li><strong>Монитор:</strong> 24" MUCAI 280Hz</li><li><strong>Периферия:</strong> Наушники: ARENA DARK PROJECT<br>Мышь: Logitech G102<br>Клавиатура: Red Square Keyrox TKL<br>Коврик Коврик Wizard</li></ul></div>
+                                   </div>
+                                </div>
+
+                                <div class="sub-content" data-type="bond">
+                                    <h4>Связаться с нами (Зеленодольск)</h4>
+                                    <p>Вы можете связаться с нами через удобные для вас мессенджеры и социальные сети:</p>
+                                    <div class="contact-socials-inline">
+                                        <a href="https://vk.com/wizardzelenodolsk" target="_blank" rel="noopener noreferrer" title="VK">
+                                            <img src="images/icons/vk.svg" alt="VK">
+                                        </a>
+                                        <a href="https://wa.me/79656126509" target="_blank" rel="noopener noreferrer" title="WhatsApp">
+                                            <img src="images/icons/whatsapp.svg" alt="WhatsApp">
+                                        </a>
+                                        <a href="https://t.me/onlywizard_zel_bot" target="_blank" rel="noopener noreferrer" title="Telegram">
+                                            <img src="images/icons/tg.svg" alt="Telegram">
+                                        </a>
+                                    </div>
+                                    <p>Или позвоните нам по телефону: <a href="tel:+79656126509">+7 (965) 612-65-09</a></p>
+                                </div>
+
+                            </div>
+                            <div class="content-image"><img src="images/club/zelenodolsk.webp" alt="3D макет клуба Only Wizard в Зеленодольске"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= Блок 3: Бар и Снеки ======================= -->
+        <section id="block3" class="bar-snacks-block section-padding" aria-labelledby="bar-snacks-title-h2">
+             <div class="container">
+                <h2 class="section-title" id="bar-snacks-title-h2">BAR И SNACK</h2>
+                <div class="bar-content-area">
+                    <!-- Содержимое для Ямашева -->
+                    <div class="bar-location-content active" data-bar-location="yamasheva-bar">
+                        <div class="bar-snacks-container">
+                            <div class="bar-snacks-column drinks-column">
+                                <h3>НАПИТКИ</h3>
+                                <div class="bar-category-selectors">
+                                    <button class="bar-category-button active" data-category="energy-yam" type="button" aria-label="Энергетические напитки">
+                                        <img src="images/bar/energy.svg" alt="">
+                                    </button>
+                                    <button class="bar-category-button" data-category="drink1l-yam" type="button" aria-label="Напитки 1л">
+                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAADbUlEQVR4nO2Z32tPYRzHP5sfQ4TmgmTWhgvLjyQpalkaN+TajTJxh6hJotao8Q9gtrslF0qkpC0Xu8ASUqKZQmjIz43m51467bS+ezzf8zw7+z7nh53X7fn8eD7v85znx+eIZGQUFBwhaYFMADdIWmC8C5DLaIv6L4rOJRPAwAi1shkg/9cnABSN6xkAlBrqH9T4DCo2RZJWgCqDAN80PgOKTamkFWCzQYBejc9bxWappBWgySBAl8bnjmKzQdIKcNcgQJvG57xiUy9pBFgC/DEIsFfjt1+xaZc0ArRgZqXGb5Vi4y2K0yRNAGXAD0Pxz3VbnH92eKHY7pG0ABQDHRZvvykgxinF9ikwQdIAcMCi+N9AeUCMCs36sV2SDrAe+G4hQJtFrAuKzztgriT81PfeonhvbVhkuYv8VHyvJvJoDJQDr7CjYRRxGzX+ByVJAPOAHsvi7wEliv8IlGclwH3N+rFNkgBDA+yyLP4TUKmJkVcA/3ml76ueDeI/IgPNlsX/AmrzxAgUwLep9WPk8gVYLXEBrLMs3rvf1wXEMQrg29VpegXeolshcQDcIBk8iPyojLnRETXHohbgEMniMzA7SgE6SB47oxTgiWEwRyMYQ4OS86LrnMMAfQYBVohjNH2Dbtc5gzq3KnPEMcBMJWef65zDAC8NAlSLY4CFSs5+1zmHAa4bBDgp0e9EN13nDFqAVN643Jb86a9evfe5yvcPwHLMnBNHAGeUXJ4Y013l0+KtugYBvHN7jRQYYJPmTnCk0HmMAMctZkEvMF8KhNcSA14rOR4DUwuVwxpggWX/77baBAkDMAnoVGJ7V+Q1Y40dGuA0djQXINdZTdzGscYtxCww/QBxRTswUeIGOBFD8d2R3v6C8N6C/51HhdcKq5IkASwGPkYkwFZJIsAWm9Fr/EzP1T2/WBL6N/iZRf19IQToV0zKJEkAk4GHNm8fuBVCAHV98XItk6QAHMaeXSEE2K2J8xXYKHHD0K3MG4wN13Tfr4UAxXmu3x+8noDECbDDsviWfMdhkwC+zRSgVRO3U+IEuGxRfODfXBsBcmzrNfHXSlwAjwzFX7KIYS2Ab39FcWmVuMDcHa52IECN4tIjcYGZGaONYWE/S3EZkLjAQJgYrnycQCZAMGFEdOXjBDIBggkjoiufjAzJy1+wQemZPNkPEQAAAABJRU5ErkJggg==" alt="cola">
+                                    </button>
+                                    <button class="bar-category-button" data-category="drink05-yam" type="button" aria-label="Напитки 0,5л">
+                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAADjElEQVR4nO2bW4hOURTHl8LkmjCEQeNBuV/yoOHRJWGQJHIZRcotTx7kkmHy4EUKNY3c3lwSHojy4sWMWzKmjEtuJdeUcRnhp9P30ba+M8c533eGvXd+r/+1V/+1Z/Y5+6y9P5H//B2A6cAz/sxTYJr4BpnC4vJEfIOEiG/wfwKSIb4BDFU1NhraPaUNEd8AJqoirxhandLKxDeAclXkOUM7r7QZ4hvASlXkYUM7orQV4htAlSqy0tB2tKR5A3BYFbnc0FYo7ZD4BrkPukmGNllpteITQFvgkyqy2NCLlfYxGCO+AIxUBT4KiXmsYkaILwCbVXHHQ2JOqpiN4gtAvSpuVUjMWhXTIB71AUy+AiUhcf2Bb79FwkxxGaAoZJ9/OiL+jIp9CHQQVwE2qoKCv/DoiPhR2f8Qk+3iIkAp8EEVcyDGuGo1phkYLq4BnFWFvAZ6xRjXLaR3eANoJ64ALCSXpQnGzw4Zv0FcAOgMPFfmLwJtjJgKkhMsp35iO8CWkG3tIEMfBjSRH9XiwGvvhTK9w9A7AXfIn89xniM2rf03QBdDP0jhrBZbAY4qs7uV3gHok22QTghaX8BiYB2wNYjP9g2CDdHl7Bb6pcp5SmwFaFRmJ6SQc7TK+UBsBXivzPZIIWdHlbNJbAX4osy2TyFnO5WzWWwFeKfMdk8hZ7AzNHkrtkLuFnZACjmDz2STp2IrwE1ldnwKOctUzutiK8CJfPf/ETmD16TJMbEVYKcyuyuFnPtVziqxFWCOMns1hZx3Vc5ysRWgF/BddYCKC8jXTxX/vZB8fwXgWksHncBtCqPWxTOA8xE9wqRsEtsh872ve3pds9ogtUSS4sbNEaBBGZ8XocWlXlyB3PP+GkPbk+cEuHNnAJjS0usQmJvnBPw6TrceoK8y/0odfuRDb3EFMr1Bk08RX3dxKRJXALoo8x9SmIDO4grAEGX+YQpLYLC4ArBAmb9gaLPynID54grAPmV+Z8TBSVz2igsAbUJ+GzA14tA0Lk/M4zVrAcYp4+/NJ3jIuWESxortAJUtXYgKeoQUxjaxHeCWMr3E0BYVOAE3xWaAgcpwcN2lp6HXUDilYitkzvhMLin9fgoTsEZshdzLjusNrYR0yLlkaQ3AA2V2TIrr/yf3xVbI3AYx6ZTy+v/tu8KFCWgNmlzqCLcGdWIrwDJanwqxGTKvwjg/kk5KkHPdv65PfOMHi2dT+uueuosAAAAASUVORK5CYII=" alt="cola">
+                                    </button>
+                                    <button class="bar-category-button active" data-category="tea-yam" type="button" aria-label="Чай и другие напитки">
+                                        <img src="images/bar/tea.svg" alt="">
+                                    </button>
+                                    <button class="bar-category-button active" data-category="coffee-yam" type="button" aria-label="Кофе">
+                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEC0lEQVR4nO2aW4iVVRTHj6PitQRJ8JLTXdNESTONCutB6kGxgSTxSasHHwxRUSkQxTvRiy9CD71kpEgZoVYQgUSm4iUEZVDUQC0tL+CMjuk4/mId/gc2h++y93e258zD/GFgztl7r73+37f22v+19ymVetCD7gNgPLAR+A24BtwHLgO/A2uB50vdGcAzwHfAA7LRBXwDPFXqbgA+BG4ThjZgYam7ANhMbVgP9Go0iWUZDt4FXgZe9SCzsZEk5ine07BV/V7wfDMLGkHiccV4Gu4BI9XXFrYPbI09W28iu3Oc+sFJxXlZzMWvdVsvwCzfMCmYCFrqReSAhzPPqe+hAkQO1oPEJE9nBqj/dc/+ncD3wHvAwHoQ+dzTsbIzQEdOP5Mv2ytvUGP6AtOU2m0tnnE22w6gFdgLLCmkDoCmgCfcrDF/ZfSxEB3n2H8C2AT8iz+6gK/dB+FDZGLABNM0Zn9C2x1gBdDbIbBLb6co2ryTBLA4wPASjdlS9f0VYKoTQiuBW8TBA9ukfYjsDDC6W2NMolRwGnha348GjhMfHblhBhwLMGjhM1TjTmiBDtPnyTlrp1bsySPyT6DBZRo309aB/n8baI/o9AzgjYQQSy/ePFJpNawqHOyMn1HARhbaZHdwQtvqLCJFskqLUz3eIC4OyPaEhLafs4iEOnLYUqyy0x/Ex2L5tTSh7e8sIucDJrG3N1HjLMXGxmmgnx7UqRTJ05RGJEQAbteY5oj7RAU3rViT/Q9Ixr0YOsvexliNsR07Ji6acHVqnbQMeDWLyCLPyfY60qMW2VGdUr8EHpPtccCFjP5nYmituSnypAhuKxLGO37M8RCv+1KJyMjZHAPtWoT2d7Wg85fl/KxKXaO5nwR2eNpYlUfk0xwDP6nf6wWc/0xHR01VpcNr0nmdAfZeySMyNucI6GP1+8RzwutS1f2cOQYC7wBfFJBFFYXdN5OIJvqWdMxWnx/Jh6XzEerfy8aq3K1VxmzIJaFJp2S8lfKiBM7lTGYlbH8nDI8QB51WIngR0eTbUgwN9ZAzJ4FBjrwIif087PAmIQeGAJcSDD2qMMnaP16SjfeJizY7AQ0iIkemq4ByMUT6Jy30yqoUGB5Z0huWBpNwyMyvcrpc0GRkm0VqX0dcHAH6FCYip+xQ7T8ZfEvf/ZIy4WS12zVcLFyzzbImEg4Zyzx/2pPW5zUpk5YzisRfDHTYhhmFRNVG9q5zJ5J0Cv+I2rOuJHzRbmcAUUmkENuXMPmbShK14hLw4kMnISJjHkJmMhwFRtWFRNX1XMhFTxZuActrzk41kJmj8rQoOqV+mxtCoIqMHQd9FVgxmordEKSd6gW7zwA+0i8kWlV8dekqoVVi0vTX1IaFUA96UPLG/+J8v77T3YXYAAAAAElFTkSuQmCC" alt="coffee">
+                                    </button>
+                                </div>
+                                <div class="bar-category-details">
+                                    <div class="bar-category-content active" data-category-details="energy-yam">
+                                        <ul class="menu-list">
+                                            <li><span>Энергетик Adrenaline Rush (Original)</span><span>150 ₽</span></li>
+                                            <li><span>Энергетик Adrenaline Rush (Juicy)</span><span>150 ₽</span></li>
+                                            <li><span>Энергетик Flash</span><span>120 ₽</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="bar-category-content" data-category-details="drink1l-yam">
+                                        <ul class="menu-list">
+                                            <li><span>Coca-Cola (0.5л)</span><span>100 ₽</span></li>
+                                            <li><span>Pepsi (0.5л)</span><span>100 ₽</span></li>
+                                            <li><span>Mirinda (0.5л)</span><span>90 ₽</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="bar-category-content" data-category-details="drink05-yam">
+                                        <ul class="menu-list">
+                                            <li><span>Вода минеральная (0.5л)</span><span>70 ₽</span></li>
+                                            <li><span>Сок Rich (0.2л)</span><span>80 ₽</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="bar-category-content" data-category-details="tea-yam">
+                                        <ul class="menu-list">
+                                            <li><span>Coca-Cola (0.5л)</span><span>100 ₽</span></li>
+                                            <li><span>Pepsi (0.5л)</span><span>100 ₽</span></li>
+                                            <li><span>Mirinda (0.5л)</span><span>90 ₽</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="bar-category-content" data-category-details="coffee-yam">
+                                        <ul class="menu-list">
+                                            <li><span>Coca-Cola (0.5л)</span><span>100 ₽</span></li>
+                                            <li><span>Pepsi (0.5л)</span><span>100 ₽</span></li>
+                                            <li><span>Mirinda (0.5л)</span><span>90 ₽</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bar-snacks-column carousel-column">
+                                <div class="swiper bar-carousel bar-carousel-yamasheva">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide"><img src="images/carousel/carousel1/bar1.jpg" alt="Бар Ямашева 1">
+                                    </div>
+                                <div class="swiper-slide">
+                                    <img src="images/carousel/carousel1/bar2.jpg" alt="Бар Ямашева 2">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/carousel/carousel1/bar3.jpg" alt="Бар Ямашева 3">
+                                </div>
+                                </div>
+                                </div>
+                            </div>
+
+                            <div class="bar-snacks-column snacks-column">
+                                <h3>СНЕКИ</h3>
+                                <div class="bar-category-selectors">
+                                    <button class="bar-category-button active" data-category="chips-yam" type="button" aria-label="Чипсы">
+                                        <img src="images/bar/chips.svg" alt="">
+                                    </button>
+                                    <button class="bar-category-button" data-category="bar-yam" type="button" aria-label="Батончики">
+                                        <img src="images/bar/chocolate-bar.svg" alt="">
+                                    </button>
+                                </div>
+                                <div class="bar-category-details">
+                                    <div class="bar-category-content active" data-category-details="chips-yam">
+                                        <ul class="menu-list">
+                                            <li><span>Чипсы Lays Краб (бол.)</span><span>120 ₽</span></li>
+                                            <li><span>Чипсы Pringles Сметана (мал.)</span><span>150 ₽</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="bar-category-content" data-category-details="bar-yam">
+                                        <ul class="menu-list">
+                                            <li><span>Сухарики Flint Сметана/Зелень</span><span>60 ₽</span></li>
+                                            <li><span>Сухарики "Три корочки"</span><span>50 ₽</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Содержимое для Проспекта -->
+                    <div class="bar-location-content" data-bar-location="prospekt-bar">
+                         <div class="bar-snacks-container">
+                            <div class="bar-snacks-column drinks-column">
+                                <h3>НАПИТКИ</h3>
+                                <div class="bar-category-selectors">
+                                    <button class="bar-category-button active" data-category="energy-pros" type="button" aria-label="Энергетические напитки">
+                                        <img src="images/bar/energy.svg" alt="">
+                                    </button>
+                                    <button class="bar-category-button" data-category="drink1l-pros" type="button" aria-label="Напитки 1л">
+                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAADbUlEQVR4nO2Z32tPYRzHP5sfQ4TmgmTWhgvLjyQpalkaN+TajTJxh6hJotao8Q9gtrslF0qkpC0Xu8ASUqKZQmjIz43m51467bS+ezzf8zw7+z7nh53X7fn8eD7v85znx+eIZGQUFBwhaYFMADdIWmC8C5DLaIv6L4rOJRPAwAi1shkg/9cnABSN6xkAlBrqH9T4DCo2RZJWgCqDAN80PgOKTamkFWCzQYBejc9bxWappBWgySBAl8bnjmKzQdIKcNcgQJvG57xiUy9pBFgC/DEIsFfjt1+xaZc0ArRgZqXGb5Vi4y2K0yRNAGXAD0Pxz3VbnH92eKHY7pG0ABQDHRZvvykgxinF9ikwQdIAcMCi+N9AeUCMCs36sV2SDrAe+G4hQJtFrAuKzztgriT81PfeonhvbVhkuYv8VHyvJvJoDJQDr7CjYRRxGzX+ByVJAPOAHsvi7wEliv8IlGclwH3N+rFNkgBDA+yyLP4TUKmJkVcA/3ml76ueDeI/IgPNlsX/AmrzxAgUwLep9WPk8gVYLXEBrLMs3rvf1wXEMQrg29VpegXeolshcQDcIBk8iPyojLnRETXHohbgEMniMzA7SgE6SB47oxTgiWEwRyMYQ4OS86LrnMMAfQYBVohjNH2Dbtc5gzq3KnPEMcBMJWef65zDAC8NAlSLY4CFSs5+1zmHAa4bBDgp0e9EN13nDFqAVN643Jb86a9evfe5yvcPwHLMnBNHAGeUXJ4Y013l0+KtugYBvHN7jRQYYJPmTnCk0HmMAMctZkEvMF8KhNcSA14rOR4DUwuVwxpggWX/77baBAkDMAnoVGJ7V+Q1Y40dGuA0djQXINdZTdzGscYtxCww/QBxRTswUeIGOBFD8d2R3v6C8N6C/51HhdcKq5IkASwGPkYkwFZJIsAWm9Fr/EzP1T2/WBL6N/iZRf19IQToV0zKJEkAk4GHNm8fuBVCAHV98XItk6QAHMaeXSEE2K2J8xXYKHHD0K3MG4wN13Tfr4UAxXmu3x+8noDECbDDsviWfMdhkwC+zRSgVRO3U+IEuGxRfODfXBsBcmzrNfHXSlwAjwzFX7KIYS2Ab39FcWmVuMDcHa52IECN4tIjcYGZGaONYWE/S3EZkLjAQJgYrnycQCZAMGFEdOXjBDIBggkjoiufjAzJy1+wQemZPNkPEQAAAABJRU5ErkJggg==" alt="cola">
+                                    </button>
+                                    <button class="bar-category-button" data-category="drink05-pros" type="button" aria-label="Напитки 0,5л">
+                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAADjElEQVR4nO2bW4hOURTHl8LkmjCEQeNBuV/yoOHRJWGQJHIZRcotTx7kkmHy4EUKNY3c3lwSHojy4sWMWzKmjEtuJdeUcRnhp9P30ba+M8c533eGvXd+r/+1V/+1Z/Y5+6y9P5H//B2A6cAz/sxTYJr4BpnC4vJEfIOEiG/wfwKSIb4BDFU1NhraPaUNEd8AJqoirxhandLKxDeAclXkOUM7r7QZ4hvASlXkYUM7orQV4htAlSqy0tB2tKR5A3BYFbnc0FYo7ZD4BrkPukmGNllpteITQFvgkyqy2NCLlfYxGCO+AIxUBT4KiXmsYkaILwCbVXHHQ2JOqpiN4gtAvSpuVUjMWhXTIB71AUy+AiUhcf2Bb79FwkxxGaAoZJ9/OiL+jIp9CHQQVwE2qoKCv/DoiPhR2f8Qk+3iIkAp8EEVcyDGuGo1phkYLq4BnFWFvAZ6xRjXLaR3eANoJ64ALCSXpQnGzw4Zv0FcAOgMPFfmLwJtjJgKkhMsp35iO8CWkG3tIEMfBjSRH9XiwGvvhTK9w9A7AXfIn89xniM2rf03QBdDP0jhrBZbAY4qs7uV3gHok22QTghaX8BiYB2wNYjP9g2CDdHl7Bb6pcp5SmwFaFRmJ6SQc7TK+UBsBXivzPZIIWdHlbNJbAX4osy2TyFnO5WzWWwFeKfMdk8hZ7AzNHkrtkLuFnZACjmDz2STp2IrwE1ldnwKOctUzutiK8CJfPf/ETmD16TJMbEVYKcyuyuFnPtVziqxFWCOMns1hZx3Vc5ysRWgF/BddYCKC8jXTxX/vZB8fwXgWksHncBtCqPWxTOA8xE9wqRsEtsh872ve3pds9ogtUSS4sbNEaBBGZ8XocWlXlyB3PP+GkPbk+cEuHNnAJjS0usQmJvnBPw6TrceoK8y/0odfuRDb3EFMr1Bk08RX3dxKRJXALoo8x9SmIDO4grAEGX+YQpLYLC4ArBAmb9gaLPynID54grAPmV+Z8TBSVz2igsAbUJ+GzA14tA0Lk/M4zVrAcYp4+/NJ3jIuWESxortAJUtXYgKeoQUxjaxHeCWMr3E0BYVOAE3xWaAgcpwcN2lp6HXUDilYitkzvhMLin9fgoTsEZshdzLjusNrYR0yLlkaQ3AA2V2TIrr/yf3xVbI3AYx6ZTy+v/tu8KFCWgNmlzqCLcGdWIrwDJanwqxGTKvwjg/kk5KkHPdv65PfOMHi2dT+uueuosAAAAASUVORK5CYII=" alt="cola">
+                                    </button>
+                                    <button class="bar-category-button" data-category="tea-pros" type="button" aria-label="Чай и другое">
+                                        <img src="images/bar/tea.svg" alt="">
+                                    </button>
+                                </div>
+                                <div class="bar-category-details">
+                                    <div class="bar-category-content active" data-category-details="energy-pros">
+                                        <ul class="menu-list">
+                                            <li><span>Энергетик Adrenaline Rush</span><span>150 ₽</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="bar-category-content" data-category-details="drink1l-pros">
+                                        <ul class="menu-list">
+                                            <li><span>Coca-Cola (0.5л)</span><span>100 ₽</span></li>
+                                            <li><span>Fanta (0.5л)</span><span>100 ₽</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="bar-category-content" data-category-details="drink05-pros">
+                                        <ul class="menu-list">
+                                            <li><span>Coca-Cola (0.5л)</span><span>100 ₽</span></li>
+                                            <li><span>Fanta (0.5л)</span><span>100 ₽</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="bar-category-content" data-category-details="tea-pros">
+                                        <ul class="menu-list">
+                                            <li><span>Coca-Cola (0.5л)</span><span>100 ₽</span></li>
+                                            <li><span>Fanta (0.5л)</span><span>100 ₽</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bar-snacks-column carousel-column">
+                                <div class="swiper bar-carousel bar-carousel-prospekt">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <img src="images/carousel/carousel2/bar1.jpg" alt="Бар на Проспекте 1">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bar-snacks-column snacks-column">
+                                <h3>СНЕКИ</h3>
+                                <div class="bar-category-selectors">
+                                    <button class="bar-category-button active" data-category="chips-pros" type="button" aria-label="Чипсы">
+                                        <img src="images/bar/chips.svg" alt="">
+                                    </button>
+                                    <button class="bar-category-button" data-category="bar-pros" type="button" aria-label="Батончики">
+                                        <img src="images/bar/chocolate-bar.svg" alt="">
+                                    </button>
+                                </div>
+                                <div class="bar-category-details">
+                                    <div class="bar-category-content active" data-category-details="chips-pros">
+                                        <ul class="menu-list">
+                                            <li><span>Чипсы Lays Краб</span><span>120 ₽</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="bar-category-content" data-category-details="bar-pros">
+                                        <ul class="menu-list">
+                                            <li><span>Фисташки соленые (50г)</span><span>180 ₽</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+                     <!-- Содержимое для Зеленодольска -->
+                     <div class="bar-location-content" data-bar-location="zelenodolsk-bar">
+                          <div class="bar-snacks-container">
+                            <div class="bar-snacks-column drinks-column">
+                                <h3>НАПИТКИ</h3>
+                                <div class="bar-category-selectors">
+                                    <button class="bar-category-button active" data-category="energy-zel" type="button" aria-label="Энергетические напитки">
+                                        <img src="images/bar/energy.svg" alt="">
+                                    </button>
+                                    <button class="bar-category-button" data-category="drink1l-zel" type="button" aria-label="Напитки 1л">
+                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAADbUlEQVR4nO2Z32tPYRzHP5sfQ4TmgmTWhgvLjyQpalkaN+TajTJxh6hJotao8Q9gtrslF0qkpC0Xu8ASUqKZQmjIz43m51467bS+ezzf8zw7+z7nh53X7fn8eD7v85znx+eIZGQUFBwhaYFMADdIWmC8C5DLaIv6L4rOJRPAwAi1shkg/9cnABSN6xkAlBrqH9T4DCo2RZJWgCqDAN80PgOKTamkFWCzQYBejc9bxWappBWgySBAl8bnjmKzQdIKcNcgQJvG57xiUy9pBFgC/DEIsFfjt1+xaZc0ArRgZqXGb5Vi4y2K0yRNAGXAD0Pxz3VbnH92eKHY7pG0ABQDHRZvvykgxinF9ikwQdIAcMCi+N9AeUCMCs36sV2SDrAe+G4hQJtFrAuKzztgriT81PfeonhvbVhkuYv8VHyvJvJoDJQDr7CjYRRxGzX+ByVJAPOAHsvi7wEliv8IlGclwH3N+rFNkgBDA+yyLP4TUKmJkVcA/3ml76ueDeI/IgPNlsX/AmrzxAgUwLep9WPk8gVYLXEBrLMs3rvf1wXEMQrg29VpegXeolshcQDcIBk8iPyojLnRETXHohbgEMniMzA7SgE6SB47oxTgiWEwRyMYQ4OS86LrnMMAfQYBVohjNH2Dbtc5gzq3KnPEMcBMJWef65zDAC8NAlSLY4CFSs5+1zmHAa4bBDgp0e9EN13nDFqAVN643Jb86a9evfe5yvcPwHLMnBNHAGeUXJ4Y013l0+KtugYBvHN7jRQYYJPmTnCk0HmMAMctZkEvMF8KhNcSA14rOR4DUwuVwxpggWX/77baBAkDMAnoVGJ7V+Q1Y40dGuA0djQXINdZTdzGscYtxCww/QBxRTswUeIGOBFD8d2R3v6C8N6C/51HhdcKq5IkASwGPkYkwFZJIsAWm9Fr/EzP1T2/WBL6N/iZRf19IQToV0zKJEkAk4GHNm8fuBVCAHV98XItk6QAHMaeXSEE2K2J8xXYKHHD0K3MG4wN13Tfr4UAxXmu3x+8noDECbDDsviWfMdhkwC+zRSgVRO3U+IEuGxRfODfXBsBcmzrNfHXSlwAjwzFX7KIYS2Ab39FcWmVuMDcHa52IECN4tIjcYGZGaONYWE/S3EZkLjAQJgYrnycQCZAMGFEdOXjBDIBggkjoiufjAzJy1+wQemZPNkPEQAAAABJRU5ErkJggg==" alt="cola">
+                                    </button>
+                                    <button class="bar-category-button" data-category="drink05-zel" type="button" aria-label="Напитки 0,5л">
+                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAADjElEQVR4nO2bW4hOURTHl8LkmjCEQeNBuV/yoOHRJWGQJHIZRcotTx7kkmHy4EUKNY3c3lwSHojy4sWMWzKmjEtuJdeUcRnhp9P30ba+M8c533eGvXd+r/+1V/+1Z/Y5+6y9P5H//B2A6cAz/sxTYJr4BpnC4vJEfIOEiG/wfwKSIb4BDFU1NhraPaUNEd8AJqoirxhandLKxDeAclXkOUM7r7QZ4hvASlXkYUM7orQV4htAlSqy0tB2tKR5A3BYFbnc0FYo7ZD4BrkPukmGNllpteITQFvgkyqy2NCLlfYxGCO+AIxUBT4KiXmsYkaILwCbVXHHQ2JOqpiN4gtAvSpuVUjMWhXTIB71AUy+AiUhcf2Bb79FwkxxGaAoZJ9/OiL+jIp9CHQQVwE2qoKCv/DoiPhR2f8Qk+3iIkAp8EEVcyDGuGo1phkYLq4BnFWFvAZ6xRjXLaR3eANoJ64ALCSXpQnGzw4Zv0FcAOgMPFfmLwJtjJgKkhMsp35iO8CWkG3tIEMfBjSRH9XiwGvvhTK9w9A7AXfIn89xniM2rf03QBdDP0jhrBZbAY4qs7uV3gHok22QTghaX8BiYB2wNYjP9g2CDdHl7Bb6pcp5SmwFaFRmJ6SQc7TK+UBsBXivzPZIIWdHlbNJbAX4osy2TyFnO5WzWWwFeKfMdk8hZ7AzNHkrtkLuFnZACjmDz2STp2IrwE1ldnwKOctUzutiK8CJfPf/ETmD16TJMbEVYKcyuyuFnPtVziqxFWCOMns1hZx3Vc5ysRWgF/BddYCKC8jXTxX/vZB8fwXgWksHncBtCqPWxTOA8xE9wqRsEtsh872ve3pds9ogtUSS4sbNEaBBGZ8XocWlXlyB3PP+GkPbk+cEuHNnAJjS0usQmJvnBPw6TrceoK8y/0odfuRDb3EFMr1Bk08RX3dxKRJXALoo8x9SmIDO4grAEGX+YQpLYLC4ArBAmb9gaLPynID54grAPmV+Z8TBSVz2igsAbUJ+GzA14tA0Lk/M4zVrAcYp4+/NJ3jIuWESxortAJUtXYgKeoQUxjaxHeCWMr3E0BYVOAE3xWaAgcpwcN2lp6HXUDilYitkzvhMLin9fgoTsEZshdzLjusNrYR0yLlkaQ3AA2V2TIrr/yf3xVbI3AYx6ZTy+v/tu8KFCWgNmlzqCLcGdWIrwDJanwqxGTKvwjg/kk5KkHPdv65PfOMHi2dT+uueuosAAAAASUVORK5CYII=" alt="cola">
+                                    </button>
+                                    <button class="bar-category-button" data-category="tea-zel" type="button" aria-label="Чай и другое">
+                                        <img src="images/bar/tea.svg" alt="">
+                                    </button>
+                                </div>
+
+                                <div class="bar-category-details">
+                                    <div class="bar-category-content active" data-category-details="energy-zel">
+                                        <ul class="menu-list">
+                                            <li><span>Энергетик Adrenaline Rush</span><span>150 ₽</span></li>
+                                            <li><span>Tornado Energy</span><span>100 ₽</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="bar-category-content" data-category-details="drink1l-zel">
+                                        <ul class="menu-list">
+                                            <li><span>Сок "Добрый" Яблоко (1л)</span><span>130 ₽</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="bar-category-content" data-category-details="drink05-zel">
+                                        <ul class="menu-list">
+                                            <li><span>Сок "Добрый" Яблоко (1л)</span><span>130 ₽</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="bar-category-content" data-category-details="tea-zel">
+                                        <ul class="menu-list">
+                                            <li><span>Сок "Добрый" Яблоко (1л)</span><span>130 ₽</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bar-snacks-column carousel-column">
+                                <div class="swiper bar-carousel bar-carousel-zelenodolsk">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <img src="images/carousel/carousel3/bar1.jpg" alt="Бар Зеленодольска 1">
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="images/carousel/carousel3/bar2.jpg" alt="Бар Зеленодольска 2">
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="images/carousel/carousel3/bar3.jpg" alt="Бар Зеленодольска 3">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bar-snacks-column snacks-column">
+                                <h3>СНЕКИ</h3>
+                                <div class="bar-category-selectors">
+                                    <button class="bar-category-button active" data-category="chips-zel" type="button" aria-label="Чипсы">
+                                        <img src="images/bar/chips.svg" alt="">
+                                    </button>
+                                    <button class="bar-category-button" data-category="bar-zel" type="button" aria-label="Батончики">
+                                        <img src="images/bar/chocolate-bar.svg" alt="">
+                                    </button>
+                                    <button class="bar-category-button" data-category="san-zel" type="button" aria-label="Сэндвичи">
+                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAACyUlEQVR4nO2ay4rUQBSGo+LdYVy4diXoQDubFnExCxFb0MfQR3ApDLhSV+o4Cj6BvoBjg6JrwYWiPsIoE2jpnQsvn6RzlLJJ0klVpS5SHwQ6VZVK/v/U5ZB0liUSiUQikUgk4gFYBR4AH4HvcnyQshWl3QDYkWOQxQ6wH3gI/KSav0KrxEdtAqX4VzXCW4kvzrNYAR6Zii8aZiEDrAB3ZW5PgW/AO+CNDfHBGgDsBTaAHw1CjcUHaQCwD3jZUbiW+FAN2HAlPjgDgJMNW1odOXBarj8FfKkpqyQLCeC+q8iHasB7V5EP0gAdTMRHbwDth31xPgTWvBmAHXTmvFp/JmYDco05v3BaxGJA3of4WAzI+xIfgwF5n+JDNyDvW3zIBuQuxIdqwI7hVhdsHrAKHAQOFJECbgCfHYn3nwdUASwDTx2J9/c+ALgCbAET4CswBkZSt0ve7DoX78QA4CbwS72Zcv/1ubZOxfduAGXkZ+JrDCge7Kgv8VYMAA4BV4EnwHPgDrAkdcWwr8PLnLdqAHAC+CR9XQcuymvrY1I/Udr+86BKuTfxRgZQRv6P+ILzUv4aOCK/pxUG+Ii8/TwAuDbX11vghazy56TNuMWDuhBvPw+g3L/VYa9ySdqM1AfxNOyHTfUmBjybG/Yqs3KpW/e84K1J5O3mAZSrvTrsVYrye8BuabtsWfzCyLbFxIAl4LAshkWef7liOmwq7bu8tx8aRLZ2wbNqQItPWyYfLRqHbQONC541A1ic22+afrGpEdcUWTd5AP3k9qaR1e4/lNx+aBBZI3O7GrDV0JfpVqcTWVNzOxswqYj67EZKuY8MT8dcLQOmFQborvZDw/qzhtdrGTBucNn2Vreo/oLh9VoGjFTxPaz2zulkgGFuHyLbWVuA48Aezdw+VG61FT8QUY8rymIUvw3cLv6S13oEJBKJRCKRSGT/Ob8BaZoX5PeLzWsAAAAASUVORK5CYII=" alt="sandwich">
+                                    </button>
+                                </div>
+                                <div class="bar-category-details">
+                                    <div class="bar-category-content active" data-category-details="chips-zel">
+                                        <ul class="menu-list">
+                                            <li><span>Snickers Super 80 г</span><span>110 ₽</span></li>
+                                            <li><span>Alpen Gold Max Fun</span><span>140 ₽</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="bar-category-content" data-category-details="bar-zel">
+                                        <ul class="menu-list">
+                                            <li><span>Печенье Oreo (пачка)</span><span>90 ₽</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="bar-category-content" data-category-details="san-zel">
+                                        <ul class="menu-list">
+                                            <li><span>Печенье Oreo (пачка)</span><span>90 ₽</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+                <div class="bar-location-tabs location-tabs" role="tablist" aria-label="Меню бара по филиалам">
+                    <button class="tab-button active" data-target-bar="yamasheva-bar" role="tab" aria-selected="true" type="button" id="tab-yamasheva-bar">Казань (Ямашева)</button>
+                    <button class="tab-button" data-target-bar="prospekt-bar" role="tab" aria-selected="false" type="button" id="tab-prospekt-bar">Казань (Проспект)</button>
+                    <button class="tab-button" data-target-bar="zelenodolsk-bar" role="tab" aria-selected="false" type="button" id="tab-zelenodolsk-bar">Зеленодольск</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= Блок 4: Lounge Bar ======================= -->
+        <section id="block4" class="lounge-block section-padding" aria-labelledby="lounge-title-h2">
+            <div class="container">
+                <h2 class="section-title" id="lounge-title-h2">Lounge Bar</h2>
+                <div class="lounge-gallery-wrapper">
+                    <div class="swiper lounge-gallery">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="images/lounge/lounge1.jpg" alt="Lounge Bar Фото 1"></div>
+                            <div class="swiper-slide"><img src="images/lounge/lounge2.jpg" alt="Lounge Bar Фото 2"></div>
+                            <div class="swiper-slide"><img src="images/lounge/lounge3.jpg" alt="Lounge Bar Фото 3"></div>
+                            <div class="swiper-slide"><img src="images/lounge/lounge4.jpg" alt="Lounge Bar Фото 4"></div>
+                            <div class="swiper-slide"><img src="images/lounge/lounge5.jpg" alt="Lounge Bar Фото 5"></div>
+                            <div class="swiper-slide"><img src="images/lounge/lounge6.jpg" alt="Lounge Bar Фото 6"></div>
+                            <div class="swiper-slide"><img src="images/lounge/lounge7.jpg" alt="Lounge Bar Фото 7"></div>
+                            <div class="swiper-slide"><img src="images/lounge/lounge8.jpg" alt="Lounge Bar Фото 8"></div>
+                            <div class="swiper-slide"><img src="images/lounge/lounge9.jpg" alt="Lounge Bar Фото 9"></div>
+                            <div class="swiper-slide"><img src="images/lounge/lounge10.jpg" alt="Lounge Bar Фото 10"></div>
+                            <div class="swiper-slide"><img src="images/lounge/lounge11.jpg" alt="Lounge Bar Фото 11"></div>
+                            <div class="swiper-slide"><img src="images/lounge/lounge12.jpg" alt="Lounge Bar Фото 12"></div>
+                            <div class="swiper-slide"><img src="images/lounge/lounge13.jpg" alt="Lounge Bar Фото 13"></div>
+                            <div class="swiper-slide"><img src="images/lounge/lounge14.jpg" alt="Lounge Bar Фото 14"></div>
+                            <div class="swiper-slide"><img src="images/lounge/lounge15.jpg" alt="Lounge Bar Фото 15"></div>
+                            <div class="swiper-slide"><img src="images/lounge/lounge16.jpg" alt="Lounge Bar Фото 16"></div>
+                            <div class="swiper-slide"><img src="images/lounge/lounge17.jpg" alt="Lounge Bar Фото 17"></div>
+                            <div class="swiper-slide"><img src="images/lounge/lounge18.jpg" alt="Lounge Bar Фото 18"></div>
+                            <div class="swiper-slide"><img src="images/lounge/lounge19.jpg" alt="Lounge Bar Фото 19"></div>
+                            <div class="swiper-slide"><img src="images/lounge/lounge20.jpg" alt="Lounge Bar Фото 20"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-button-prev lounge-arrow lounge-arrow-prev" role="button" aria-label="Предыдущее фото лаунж бара"><img src="images/arrow/left.svg" alt="Назад"></div>
+                    <div class="swiper-button-next lounge-arrow lounge-arrow-next" role="button" aria-label="Следующее фото лаунж бара"><img src="images/arrow/right.svg" alt="Вперед"></div>
+                </div>
+                <div class="lounge-text-content">
+                    <a href="https://wizardlounge.tilda.ws" class="lounge-menu-link">MENU</a>
+                    <p class="lounge-description">
+                        Пространство, где ты можешь расслабиться, насладиться авторскими коктейлями и провести время с друзьями в стильной обстановке ретро-футуризма.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= Блок 5: Акции ======================= -->
+        <section id="block5" class="promotions-block section-padding" aria-labelledby="promo-title-h2">
+            <div class="container">
+                <h2 class="section-title" id="promo-title-h2">АКЦИИ КОМПЬЮТЕРНОГО КЛУБА</h2>
+                <div class="promo-content-area">
+
+                    <!-- Контент для Ямашева -->
+                    <div class="promo-location-content active" data-promo-location="yamasheva-promo">
+                        <div class="promo-layout">
+                            <!-- Левая колонка: Список акций -->
+                            <div class="promo-list-column">
+                                <ul class="promo-list">
+                                    <!-- data-promo-id должен быть уникальным для каждой акции -->
+                                    <!-- Добавляем класс active к первой акции -->
+                                    <li class="promo-list-item active" data-promo-id="baraban-udachi">
+                                        Барабан удачи
+                                    </li>
+                                    <li class="promo-list-item" data-promo-id="birthday-bonus">
+                                        Бонус в День Рождения
+                                    </li>
+                                    <li class="promo-list-item" data-promo-id="bring-friend">
+                                        Приведи друга
+                                    </li>
+                                    <li class="promo-list-item" data-promo-id="big-team">
+                                        Для БОЛЬШИХ КАМПАНИЙ
+                                    </li>
+                                    <!-- Добавь другие акции -->
+                                </ul>
+                            </div>
+
+                            <!-- Правая колонка: Описание и фото акции -->
+                            <div class="promo-details-column">
+                                <!-- Информация для акции baraban-udachi (активна по умолчанию) -->
+                                <div class="promo-details active" data-promo-details-id="baraban-udachi">
+                                    <div class="promo-details-text">
+                                        <h3>Барабан удачи</h3>
+                                        <p>🎁 Номинал призов:><br>🔸100₽/🔸200₽/🔸300₽/🔸500₽/🔸Х2 к БАЛАНСУ.<br> 
+                                            🎮 Что же нужно сделать:</p>
+                                        <p><strong>Условия:</strong> Прийти в ONLY WIZARD,<br> 
+                                            Получить приз из барабана<br>
+                                            Акция действует ежедневно. Не суммируется с другими скидками.</p>
+                                        <p><strong>Цена:</strong> 600 ₽</p>
+                                    </div>
+                                    <div class="promo-details-image">
+                                        <img src="images/promotions/baraban-udachi.jpg" alt="Барабан удачи">
+                                    </div>
+                                </div>
+                                <!-- Информация для акции birthday-bonus (скрыта) -->
+                                <div class="promo-details" data-promo-details-id="birthday-bonus">
+                                     <div class="promo-details-text">
+                                        <h3>Бонус в День Рождения</h3>
+                                        <p>Отпразднуй свой День Рождения в Only Wizard! Предъяви паспорт и получи на счет 300 ₽ подарок при оплате любого пакета от 3 часов.</p>
+                                         <p><strong>Условия:</strong> Действует в День Рождения, а также 3 дня до и 3 дня после. Требуется предъявление документа.</p>
+                                         <p><strong>🎁 Специально для именинника:</strong> Приходи со своей едой и кушай во время игры 🎮</p>
+                                    </div>
+                                    <div class="promo-details-image">
+                                        <img src="images/promotions/birthday.jpg" alt="Бонус в День Рождения">
+                                    </div>
+                                </div>
+                                 <!-- Информация для акции bring-friend (скрыта) -->
+                                <div class="promo-details" data-promo-details-id="bring-friend">
+                                    <div class="promo-details-text">
+                                        <h3>Приведи друга</h3>
+                                        <p>Приходи с другом, который еще не был у нас, и получите оба по 200 ₽ на счет! Друг должен зарегистрироваться и пополнить баланс.</p>
+                                        <p><strong>Условия:</strong> Бонус начисляется после первого пополнения друга. Участвовать можно неограниченное количество раз.</p>
+                                        <p><strong></strong> Необходимо пополнить баланс на сумму от 100₽ при регистрации — Назвать номер телефона и Имя друга от которого вы пришли.<br>
+                                            🥳 Бегом в клуб, ждём всех !</p>
+                                    </div>
+                                    <div class="promo-details-image">
+                                        <img src="images/promotions/friend.jpg" alt="Приведи друга">
+                                    </div>
+                                </div>
+                                 <!-- Информация для акции big-team (скрыта) -->
+                                <div class="promo-details" data-promo-details-id="big-team">
+                                    <div class="promo-details-text">
+                                        <h3>Для БОЛЬШИХ КАМПАНИЙ</h3>
+                                        <p>Приходите впятером, а платите за 4-ых!</p>
+                                        <p><strong>Условия:</strong> Акция распространяется при покупке пакетов.</p>
+                                    </div>
+                                    <div class="promo-details-image">
+                                        <img src="images/promotions/big-team.jpg" alt="Для БОЛЬШИХ КАМПАНИЙ">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Контент для Проспекта -->
+                     <div class="promo-location-content" data-promo-location="prospekt-promo">
+                        <div class="promo-layout">
+                            <!-- Левая колонка: Список акций -->
+                            <div class="promo-list-column">
+                                <ul class="promo-list">
+                                    <!-- data-promo-id должен быть уникальным для каждой акции -->
+                                    <!-- Добавляем класс active к первой акции -->
+                                    <li class="promo-list-item active" data-promo-id="baraban-udachi">
+                                        Барабан удачи
+                                    </li>
+                                    <li class="promo-list-item" data-promo-id="birthday-bonus">
+                                        Бонус в День Рождения
+                                    </li>
+                                    <li class="promo-list-item" data-promo-id="bring-friend">
+                                        Приведи друга
+                                    </li>
+                                    <li class="promo-list-item" data-promo-id="big-team">
+                                        Для БОЛЬШИХ КАМПАНИЙ
+                                    </li>
+                                    <!-- Добавь другие акции -->
+                                </ul>
+                            </div>
+
+                            <!-- Правая колонка: Описание и фото акции -->
+                            <div class="promo-details-column">
+                                <!-- Информация для акции baraban-udachi (активна по умолчанию) -->
+                                <div class="promo-details active" data-promo-details-id="baraban-udachi">
+                                    <div class="promo-details-text">
+                                        <h3>Барабан удачи</h3>
+                                        <p>🎁 Номинал призов:><br>🔸100₽/🔸200₽/🔸300₽/🔸500₽/🔸Х2 к БАЛАНСУ.<br> 
+                                            🎮 Что же нужно сделать:</p>
+                                        <p><strong>Условия:</strong> Прийти в ONLY WIZARD,<br> 
+                                            Получить приз из барабана<br>
+                                            Акция действует ежедневно. Не суммируется с другими скидками.</p>
+                                        <p><strong>Цена:</strong> 600 ₽</p>
+                                    </div>
+                                    <div class="promo-details-image">
+                                        <img src="images/promotions/baraban-udachi.jpg" alt="Барабан удачи">
+                                    </div>
+                                </div>
+                                <!-- Информация для акции birthday-bonus (скрыта) -->
+                                <div class="promo-details" data-promo-details-id="birthday-bonus">
+                                     <div class="promo-details-text">
+                                        <h3>Бонус в День Рождения</h3>
+                                        <p>Отпразднуй свой День Рождения в Only Wizard! Предъяви паспорт и получи на счет 300 ₽ подарок при оплате любого пакета от 3 часов.</p>
+                                         <p><strong>Условия:</strong> Действует в День Рождения, а также 3 дня до и 3 дня после. Требуется предъявление документа.</p>
+                                         <p><strong>🎁 Специально для именинника:</strong> Приходи со своей едой и кушай во время игры 🎮</p>
+                                    </div>
+                                    <div class="promo-details-image">
+                                        <img src="images/promotions/birthday.jpg" alt="Бонус в День Рождения">
+                                    </div>
+                                </div>
+                                 <!-- Информация для акции bring-friend (скрыта) -->
+                                <div class="promo-details" data-promo-details-id="bring-friend">
+                                     <div class="promo-details-text">
+                                        <h3>Приведи друга</h3>
+                                        <p>Приходи с другом, который еще не был у нас, и получите оба по 200 ₽ на счет! Друг должен зарегистрироваться и пополнить баланс.</p>
+                                        <p><strong>Условия:</strong> Бонус начисляется после первого пополнения друга. Участвовать можно неограниченное количество раз.</p>
+                                        <p><strong></strong> Необходимо пополнить баланс на сумму от 100₽ при регистрации — Назвать номер телефона и Имя друга от которого вы пришли.<br>
+                                            🥳 Бегом в клуб, ждём всех !</p>
+                                    </div>
+                                    <div class="promo-details-image">
+                                        <img src="images/promotions/friend.jpg" alt="Приведи друга">
+                                    </div>
+                                </div>
+                                 <!-- Информация для акции big-team (скрыта) -->
+                                <div class="promo-details" data-promo-details-id="big-team">
+                                     <div class="promo-details-text">
+                                        <h3>Для БОЛЬШИХ КАМПАНИЙ</h3>
+                                        <p>Приходите впятером, а платите за 4-ых!</p>
+                                        <p><strong>Условия:</strong> Акция распространяется при покупке пакетов.</p>
+                                    </div>
+                                    <div class="promo-details-image">
+                                        <img src="images/promotions/big-team.jpg" alt="Для БОЛЬШИХ КАМПАНИЙ">
+                                    </div>
+                                </div>
+                                <!-- Добавь блоки .promo-details для остальных акций -->
+                            </div>
+                        </div><!-- /.promo-layout -->
+                         
+                     </div>
+                     <!-- Контент для Зеленодольска -->
+                    <div class="promo-location-content" data-promo-location="zelenodolsk-promo">
+                        <div class="promo-layout">
+                            <!-- Левая колонка: Список акций -->
+                            <div class="promo-list-column">
+                                <ul class="promo-list">
+                                    <!-- data-promo-id должен быть уникальным для каждой акции -->
+                                    <!-- Добавляем класс active к первой акции -->
+                                    <li class="promo-list-item active" data-promo-id="baraban-udachi">
+                                        Барабан удачи
+                                    </li>
+                                    <li class="promo-list-item" data-promo-id="birthday-bonus">
+                                        Бонус в День Рождения
+                                    </li>
+                                    <li class="promo-list-item" data-promo-id="bring-friend">
+                                        Приведи друга
+                                    </li>
+                                    <li class="promo-list-item" data-promo-id="big-team">
+                                        Для БОЛЬШИХ КАМПАНИЙ
+                                    </li>
+                                    <!-- Добавь другие акции -->
+                                </ul>
+                            </div>
+
+                            <!-- Правая колонка: Описание и фото акции -->
+                            <div class="promo-details-column">
+                                <!-- Информация для акции baraban-udachi (активна по умолчанию) -->
+                                <div class="promo-details active" data-promo-details-id="baraban-udachi">
+                                    <div class="promo-details-text">
+                                        <h3>Барабан удачи</h3>
+                                        <p>🎁 Номинал призов:><br>🔸100₽/🔸150₽/🔸200₽/🔸250₽/🔸300₽/🔸500₽/🔸Х2 к БАЛАНСУ.<br> 
+                                            🎮 Что же нужно сделать:</p>
+                                        <p><strong>Условия:</strong> Прийти в ONLY WIZARD,<br> 
+                                            Получить приз из барабана<br>
+                                            Акция действует ежедневно. Не суммируется с другими скидками.</p>
+                                        <p><strong>Цена:</strong> 500 ₽</p>
+                                    </div>
+                                    <div class="promo-details-image">
+                                        <img src="images/promotions/baraban-udachi.jpg" alt="Барабан удачи">
+                                    </div>
+                                </div>
+                                <!-- Информация для акции birthday-bonus (скрыта) -->
+                                <div class="promo-details" data-promo-details-id="birthday-bonus">
+                                     <div class="promo-details-text">
+                                        <h3>Бонус в День Рождения</h3>
+                                        <p>Отпразднуй свой День Рождения в Only Wizard! Предъяви паспорт и получи на счет 300 ₽ подарок при оплате любого пакета от 3 часов.</p>
+                                         <p><strong>Условия:</strong> Действует в День Рождения, а также 3 дня до и 3 дня после. Требуется предъявление документа.</p>
+                                         <p><strong>🎁 Специально для именинника:</strong> Приходи со своей едой и кушай во время игры 🎮</p>
+                                    </div>
+                                    <div class="promo-details-image">
+                                        <img src="images/promotions/birthday.jpg" alt="Бонус в День Рождения">
+                                    </div>
+                                </div>
+                                 <!-- Информация для акции bring-friend (скрыта) -->
+                                <div class="promo-details" data-promo-details-id="bring-friend">
+                                     <div class="promo-details-text">
+                                        <h3>Приведи друга</h3>
+                                        <p>Приходи с другом, который еще не был у нас, и получите оба по 200 ₽ на счет! Друг должен зарегистрироваться и пополнить баланс.</p>
+                                        <p><strong>Условия:</strong> Бонус начисляется после первого пополнения друга. Участвовать можно неограниченное количество раз.</p>
+                                        <p><strong></strong> Необходимо пополнить баланс на сумму от 100₽ при регистрации — Назвать номер телефона и Имя друга от которого вы пришли.<br>
+                                            🥳 Бегом в клуб, ждём всех !</p>
+                                    </div>
+                                    <div class="promo-details-image">
+                                        <img src="images/promotions/friend.jpg" alt="Приведи друга">
+                                    </div>
+                                </div>
+                                 <!-- Информация для акции big-team (скрыта) -->
+                                <div class="promo-details" data-promo-details-id="big-team">
+                                     <div class="promo-details-text">
+                                        <h3>Для БОЛЬШИХ КАМПАНИЙ</h3>
+                                        <p>Приходите впятером, а платите за 4-ых!</p>
+                                        <p><strong>Условия:</strong> Акция распространяется при покупке пакетов.</p>
+                                    </div>
+                                    <div class="promo-details-image">
+                                        <img src="images/promotions/big-team.jpg" alt="Для БОЛЬШИХ КАМПАНИЙ">
+                                    </div>
+                                </div>
+                                <!-- Добавь блоки .promo-details для остальных акций -->
+                            </div>
+                        </div><!-- /.promo-layout -->
+                     </div>
+                </div>
+
+                <div class="promo-location-tabs location-tabs" role="tablist" aria-label="Акции по филиалам">
+                    <button class="tab-button active" data-target-promo="yamasheva-promo" role="tab" aria-selected="true" type="button" id="tab-yamasheva-promo">Казань (Ямашева)</button>
+                    <button class="tab-button" data-target-promo="prospekt-promo" role="tab" aria-selected="false" type="button" id="tab-prospekt-promo">Казань (Проспект)</button>
+                    <button class="tab-button" data-target-promo="zelenodolsk-promo" role="tab" aria-selected="false" type="button" id="tab-zelenodolsk-promo">Зеленодольск</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= Блок 6: Правила клуба ======================= -->
+        <section id="block6" class="rules-block section-padding" aria-labelledby="rules-title-h2">
+            <div class="container">
+                <h2 class="section-title" id="rules-title-h2">ПРАВИЛА КЛУБА</h2>
+                <div class="rules-container">
+                    <p><strong>Компьютерный клуб Only Wizard является частным заведением, поэтому администрация вправе отказать в посещении клуба любому клиенту без объяснения причин отказа.</strong></p>
+                    <p><strong>1. Общие положения:</strong></p>
+                    <ul>
+                        <li>1.1. Посещение Клуба означает автоматическое согласие с настоящими Правилами.</li>
+                        <li>1.2. Администрация Клуба вправе отказать в посещении без объяснения причин.</li>
+                        <li>1.3. Вход в Клуб разрешен лицам, достигшим 14 лет (или с 12 лет в сопровождении законных представителей в дневное время).</li>
+                        <li>1.4. Время работы Клуба указано на информационном стенде и на сайте.</li>
+                    </ul>
+
+                    <p><strong>2. Правила поведения:</strong></p>
+                    <ul>
+                        <li>2.1. Запрещается наносить ущерб имуществу клуба или стучать по нему.</li>
+                        <li>2.2. Запрещается приносить и употреблять свои напитки и еду (кроме случаев, оговоренных с Администрацией).</li>
+                        <li>2.3. Запрещается находиться в состоянии сильного алкогольного или наркотического опьянения.</li>
+                        <li>2.4. Запрещается использование нецензурной лексики, громкие крики, агрессивное поведение.</li>
+                        <li>2.5. Бережно относитесь к имуществу Клуба. В случае порчи оборудования посетитель несет материальную ответственность.</li>
+                        <li>2.6. Запрещается установка стороннего ПО, изменение настроек компьютеров и операционной системы.</li>
+                        <li>2.7. Соблюдайте чистоту и порядок.</li>
+                    </ul>
+
+                    <p><strong>3. Оплата и бронирование:</strong></p>
+                    <ul>
+                        <li>3.1. Услуги Клуба предоставляются на условиях предоплаты согласно действующему прайс-листу.</li>
+                        <li>3.2. Оплаченное время не переносится и не возвращается.</li>
+                        <li>3.3. Бронирование осуществляется по телефону или через мессенджеры.</li>
+                        <li>3.4. При опоздании на забронированное время более чем на 15 минут бронь может быть снята.</li>
+                    </ul>
+                    <p><em>
+                            Администрация оставляет за собой право вносить изменения в Правила Клуба. 
+                            Актуальная версия Правил всегда доступна на информационном стенде и/или на сайте.
+                        </span>
+                        </em>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================= Блок 7: Отзывы ========================= -->
+        <section id="block7" class="reviews-block section-padding" aria-labelledby="reviews-title">
+            <div class="container">
+                <h2 class="section-title" id="reviews-title">Нас выбирают</h2>
+
+                <div class="reviews-summary">
+                    <div class="yandex-badge-container">
+                        <a href="#yandex-badge-modal" class="yandex-badge-link js-open-yandex-modal" aria-label="Подробнее о награде Хорошее место (изображение)">
+                            <img src="images/yandex/yandex-good-place-2025.png" alt="Яндекс: Хорошее место 2025" class="yandex-badge-image">
+                        </a>
+                        <div class="yandex-badge-text-content"> <!-- Новый контейнер для текста -->
+                            <a href="#yandex-badge-modal" class="yandex-badge-title-link js-open-yandex-modal" aria-label="Подробнее о награде Хорошее место (заголовок)">
+                                <p class="yandex-badge-title">Хорошее место 2025</p>
+                            </a>
+                            <p class="yandex-badge-subtitle">Награда для любимых мест пользователей Яндекс Карт</p>
+                        </div>
+                    </div>
+                    <div class="rating-overview">
+                        <div class="rating-score">5,0</div>
+                        <div class="rating-stars">
+                            ★★★★★
+                        </div>
+                        <div class="rating-count">>496 оценок от реальных людей</div>
+                    </div>
+                </div>
+
+                <!-- Бегущая строка с отзывами -->
+                <div class="reviews-carousel-wrapper">
+                    <div class="swiper reviews-swiper"> 
+                        <div class="swiper-wrapper">
+
+                            <div class="swiper-slide"> 
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <div class="review-avatar"> 
+                                            <img src="images/avatars/user1.webp" alt="Аватар пользователя">
+                                        </div>
+                                        <div class="review-author-info">
+                                            <span class="review-author-name">ЯРУС</span>
+                                            <span class="review-source">Знаток города 2 уровня</span>
+                                        </div>
+                                    </div>
+                                    <div class="review-meta">
+                                        <span class="review-stars">★★★★★</span>
+                                        <span class="review-date">13.10.2024</span>
+                                    </div>
+                                    <p class="review-text">
+                                        лучший игровой клуб! Отличное оборудование, много игр, как на пк так и на PS5, дружелюбный персонал, всегда рад помочь с проблемами.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide"> 
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <div class="review-avatar"> 
+                                            <img src="images/avatars/user2.webp" alt="Аватар пользователя">
+                                        </div>
+                                        <div class="review-author-info">
+                                            <span class="review-author-name">missuuuuuuuu</span>
+                                            <span class="review-source">Знаток города 2 уровня</span>
+                                        </div>
+                                    </div>
+                                    <div class="review-meta">
+                                        <span class="review-stars">★★★★★</span>
+                                        <span class="review-date">03.01.2025</span>
+                                    </div>
+                                    <p class="review-text">
+                                        Лучший клуб в городе, сам приезжий,
+                                        В данном комп клубе можно спокойно отдохнуть без шума, все чисто, девайсы 
+                                        хорошие, единственное хотелось бы другой процессор, для кс2 10400 маловато все 
+                                        таки, просадки бывают до 100(не много не приятно ощущается)
+                                        Всем советую данный клуб и всех с наступившим &lt;3
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide"> 
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <div class="review-avatar">
+                                            <img src="images/avatars/user3.webp" alt="Аватар пользователя">
+                                        </div>
+                                        <div class="review-author-info">
+                                            <span class="review-author-name">Анастасия В.</span>
+                                            <span class="review-source">Знаток города 3 уровня</span>
+                                        </div>
+                                    </div>
+                                    <div class="review-meta">
+                                        <span class="review-stars">★★★★★</span>
+                                        <span class="review-date">26.04.2025</span>
+                                    </div>
+                                    <p class="review-text">
+                                        хороший пк клуб , часто прихожу с друзьями , выбор сюжетных игр на пс5 и пк обширный , 
+                                        проблемы администрация решает быстро, всем советую 🤘🏻 пушка огонь, сотрудники топ
+                                    </p>
+                                </div>
+                            </div>
+
+                             <div class="swiper-slide">
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <div class="review-avatar">
+                                            <img src="images/avatars/user4.webp" alt="Аватар пользователя">
+                                        </div>
+                                        <div class="review-author-info">
+                                            <span class="review-author-name">Наиля</span>
+                                            <span class="review-source">Знаток города 4 уровня</span>
+                                        </div>
+                                    </div>
+                                    <div class="review-meta">
+                                        <span class="review-stars">★★★★★</span>
+                                        <span class="review-date">29.04.2025</span>
+                                    </div>
+                                    <p class="review-text">
+                                        Афигенный клуб, компы мощные, админи классные, атмосфера топовая, рекомендую
+                                    </p>
+                                </div>
+                            </div> 
+
+                            <div class="swiper-slide"> 
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <div class="review-avatar">
+                                            <img src="images/avatars/user5.webp" alt="Аватар пользователя">
+                                        </div>
+                                        <div class="review-author-info">
+                                            <span class="review-author-name">Никита Луков</span>
+                                            <span class="review-source">Знаток города 2 уровня</span>
+                                        </div>
+                                    </div>
+                                    <div class="review-meta">
+                                        <span class="review-stars">★★★★★</span>
+                                        <span class="review-date">27.04.2025</span>
+                                    </div>
+                                    <p class="review-text">
+                                        Хороший компьютерный клуб , отличные администраторы , попал на админа Адель , приятный человек
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide"> 
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <div class="review-avatar">
+                                            <img src="images/avatars/user6.webp" alt="Аватар пользователя">
+                                        </div>
+                                        <div class="review-author-info">
+                                            <span class="review-author-name">Булат Г.</span>
+                                            <span class="review-source">Знаток города 3 уровня</span>
+                                        </div>
+                                    </div>
+                                    <div class="review-meta">
+                                        <span class="review-stars">★★★★★</span>
+                                        <span class="review-date">27.11.2024</span>
+                                    </div>
+                                    <p class="review-text">
+                                        Очень хороший компьютерный клуб, везде чисто и убрано. 
+                                        Компьютеры работают хорошо, а персонал всегда радует своим дружелюбием. 
+                                        Отдельная благодарность Сереже, Дамиру и Алсу
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide"> 
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <div class="review-avatar">
+                                            <img src="images/avatars/user7.webp" alt="Аватар пользователя">
+                                        </div>
+                                        <div class="review-author-info">
+                                            <span class="review-author-name">Марсель Х.</span>
+                                            <span class="review-source">Знаток города 3 уровня</span>
+                                        </div>
+                                    </div>
+                                    <div class="review-meta">
+                                        <span class="review-stars">★★★★★</span>
+                                        <span class="review-date">05.04.2025</span>
+                                    </div>
+                                    <p class="review-text">
+                                        Всем привет, советую этот комп клуб, напитки по хорошей цене и отличные девайсы, добрый админский состав, приходите!!
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide"> 
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <div class="review-avatar">
+                                            <img src="images/avatars/user8.webp" alt="Аватар пользователя">
+                                        </div>
+                                        <div class="review-author-info">
+                                            <span class="review-author-name">CAPTAIN 8</span>
+                                            <span class="review-source">Знаток города 2 уровня</span>
+                                        </div>
+                                    </div>
+                                    <div class="review-meta">
+                                        <span class="review-stars">★★★★★</span>
+                                        <span class="review-date">04.04.2025</span>
+                                    </div>
+                                    <p class="review-text">
+                                        Визард топ компы❤️❤️❤️ всем советую, админы лучшие, добрые и вежливые, есть приставки и напитки по хорошей цене!! Приходите играйте
+                                    </p>
+                                </div>
+                            </div> 
+                            
+                            <div class="swiper-slide"> 
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <div class="review-avatar">
+                                            <img src="images/avatars/user9.webp" alt="Аватар пользователя">
+                                        </div>
+                                        <div class="review-author-info">
+                                            <span class="review-author-name">Тимур Липатов</span>
+                                            <span class="review-source">Знаток города 4 уровня</span>
+                                        </div>
+                                    </div>
+                                    <div class="review-meta">
+                                        <span class="review-stars">★★★★★</span>
+                                        <span class="review-date">17.03.2025</span>
+                                    </div>
+                                    <p class="review-text">
+                                        хороший компьютерный клуб,прикольны е и вежливые сотрудники все чисто и аккуратно,компы мощные,кресла удобные
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide"> 
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <div class="review-avatar">
+                                            <img src="images/avatars/user10.webp" alt="Аватар пользователя">
+                                        </div>
+                                        <div class="review-author-info">
+                                            <span class="review-author-name">Пабло Пикассо</span>
+                                            <span class="review-source">Знаток города 4 уровня</span>
+                                        </div>
+                                    </div>
+                                    <div class="review-meta">
+                                        <span class="review-stars">★★★★★</span>
+                                        <span class="review-date">01.02.2025</span>
+                                    </div>
+                                    <p class="review-text">
+                                        Супер клуб, всем советую, отличные девавсы, цены радуют
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide"> 
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <div class="review-avatar">
+                                            <img src="images/avatars/user11.webp" alt="Аватар пользователя">
+                                        </div>
+                                        <div class="review-author-info">
+                                            <span class="review-author-name">Ксения Мягкова</span>
+                                            <span class="review-source">Знаток города 6 уровня</span>
+                                        </div>
+                                    </div>
+                                    <div class="review-meta">
+                                        <span class="review-stars">★★★★★</span>
+                                        <span class="review-date">25.04.2025</span>
+                                    </div>
+                                    <p class="review-text">
+                                        За админов ⭐️⭐️⭐️⭐️⭐️
+
+                                        Удобно заказать еду прямо за пк и кальяны появились 🔥
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide"> 
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <div class="review-avatar">
+                                            <img src="images/avatars/user12.webp" alt="Аватар пользователя">
+                                        </div>
+                                        <div class="review-author-info">
+                                            <span class="review-author-name">Эльмин Мамедюсифов</span>
+                                            <span class="review-source">Знаток города 3 уровня</span>
+                                        </div>
+                                    </div>
+                                    <div class="review-meta">
+                                        <span class="review-stars">★★★★★</span>
+                                        <span class="review-date">25.04.2025</span>
+                                    </div>
+                                    <p class="review-text">
+                                        Хожу сюда около 9 месяцев,лучшее место в котором был.Добрые админы,всегда помогут если что не так.Однозначно лучший клуб
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide"> 
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <div class="review-avatar">
+                                            <img src="images/avatars/user13.webp" alt="Аватар пользователя">
+                                        </div>
+                                        <div class="review-author-info">
+                                            <span class="review-author-name">Надежда К.</span>
+                                            <span class="review-source">Знаток города 6 уровня</span>
+                                        </div>
+                                    </div>
+                                    <div class="review-meta">
+                                        <span class="review-stars">★★★★★</span>
+                                        <span class="review-date">25.04.2025</span>
+                                    </div>
+                                    <p class="review-text">
+                                        Клевое место, всегда находят свободные компы рядом, и выбор энергетиков хороший
+                                        Советую!
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide"> 
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <div class="review-avatar">
+                                            <img src="images/avatars/user14.webp" alt="Аватар пользователя">
+                                        </div>
+                                        <div class="review-author-info">
+                                            <span class="review-author-name">Вячеслав Канаев</span>
+                                            <span class="review-source">Знаток города 2 уровня</span>
+                                        </div>
+                                    </div>
+                                    <div class="review-meta">
+                                        <span class="review-stars">★★★★★</span>
+                                        <span class="review-date">27.03.2025</span>
+                                    </div>
+                                    <p class="review-text">
+                                        Имба место дешево и круто
+                                        Хожу каждый день и кайфую от места можно расслабиться в этом ПК клубе
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide"> 
+                                <div class="review-card">
+                                    <div class="review-header">
+                                        <div class="review-avatar">
+                                            <img src="images/avatars/user15.webp" alt="Аватар пользователя">
+                                        </div>
+                                        <div class="review-author-info">
+                                            <span class="review-author-name">Кирилл Р.</span>
+                                            <span class="review-source">Знаток города 4 уровня</span>
+                                        </div>
+                                    </div>
+                                    <div class="review-meta">
+                                        <span class="review-stars">★★★★★</span>
+                                        <span class="review-date">17.03.2025</span>
+                                    </div>
+                                    <p class="review-text">
+                                        лучшие компы , отзывчивый персонал
+                                        мощные компы , нормальный интеренет)
+                                        есть еда и напитки
+                                    </p>
+                                </div>
+                            </div>
+
+                        <!-- Можно добавить пагинацию или стрелки, если слайдов много -->
+                         <!-- <div class="swiper-pagination reviews-pagination"></div> -->
+                    </div>
+                </div>
+            </div> <!-- /.container -->
+        </section> <!-- /#block7 (Отзывы) -->
+
+        <!-- ======================= Блок 8: Контакты ======================= -->
+        <section id="block8" class="contacts-block section-padding" aria-labelledby="contacts-title-main"> <!-- Изменил на contacts-title-main -->
+            <div class="container contacts-container">
+                <div class="contacts-vertical-text" aria-hidden="true">КОНТАКТЫ</div>
+                <div class="contacts-content">
+                    <div class="contacts-header">
+                         <div class="contacts-brand-text" id="contacts-title-main">ONLY WIZARD</div> <!-- Добавил ID для aria-labelledby секции -->
+                         <div class="contact-location-tabs location-tabs" role="tablist" aria-label="Контакты филиалов">
+                            <button class="tab-button active" data-target-contact="yamasheva-contact" role="tab" aria-selected="true" aria-controls="details-yamasheva" type="button" id="tab-contact-yamasheva">Казань (Ямашева)</button>
+                            <button class="tab-button" data-target-contact="prospekt-contact" role="tab" aria-selected="false" aria-controls="details-prospekt" type="button" id="tab-contact-prospekt">Казань (Проспект)</button>
+                            <button class="tab-button" data-target-contact="zelenodolsk-contact" role="tab" aria-selected="false" aria-controls="details-zelenodolsk" type="button" id="tab-contact-zelenodolsk">Зеленодольск</button>
+                        </div>
+                    </div>
+                    <div class="map-info-area">
+                         <div id="yandex-map" class="map-container" aria-label="Интерактивная карта с расположением клубов"></div>
+                         <div class="contact-details" role="region" aria-live="polite">
+                             <!-- Детали для Ямашева -->
+                             <div class="contact-detail-item active" data-contact-details="yamasheva-contact" id="details-yamasheva" role="tabpanel" aria-labelledby="tab-contact-yamasheva">
+                                 <h4>Адрес:</h4>
+                                 <p>г. Казань, ул. Проспект Ямашева, д. 93</p>
+                                 <h4>Часы работы:</h4>
+                                 <p>Круглосуточно, без выходных</p>
+                                 <h4>Телефон:</h4>
+                                 <p> +7 (917) 915-00-33</p>
+                                 <div class="contact-socials">
+                                     <h4>Мы в соцсетях:</h4>
+                                     <div class="social-icons">
+                                         <a href="https://vk.com/wizard_of_gaming" target="_blank" rel="noopener noreferrer" title="VK"><img src="images/icons/vk.svg" alt="VK"></a>
+                                         <a href="https://t.me/WizardOfGaming" target="_blank" rel="noopener noreferrer" title="Telegram"><img src="images/icons/tg.svg" alt="Telegram"></a>
+                                     </div>
+                                 </div>
+                             </div>
+
+                             <!-- Детали для Проспекта -->
+                             <div class="contact-detail-item" data-contact-details="prospekt-contact" id="details-prospekt" role="tabpanel" aria-labelledby="tab-contact-prospekt">
+                                 <h4>Адрес:</h4>
+                                 <p>г. Казань, Проспект Победы, д. 100</p>
+                                 <h4>Часы работы:</h4>
+                                 <p>Круглосуточно, без выходных</p>
+                                 <h4>Телефон:</h4>
+                                 <p> +7 (903) 314-00-33</p>
+                                 <div class="contact-socials">
+                                     <h4>Мы в соцсетях:</h4>
+                                     <div class="social-icons">
+                                         <a href="https://vk.com/wizard_gorki" target="_blank" rel="noopener noreferrer" title="VK"><img src="images/icons/vk.svg" alt="VK"></a>
+                                         <a href="https://t.me/WizardOfGaming" target="_blank" rel="noopener noreferrer" title="Telegram"><img src="images/icons/tg.svg" alt="Telegram"></a>
+                                     </div>
+                                 </div>
+                             </div>
+
+                             <!-- Детали для Зеленодольска -->
+                             <div class="contact-detail-item" data-contact-details="zelenodolsk-contact" id="details-zelenodolsk" role="tabpanel" aria-labelledby="tab-contact-zelenodolsk">
+                                 <h4>Адрес:</h4>
+                                 <p>г. Зеленодольск, ул. Татарстана, д. 30</p>
+                                 <h4>Часы работы:</h4>
+                                 <p>Круглосуточно, без выходных</p>
+                                 <h4>Телефон:</h4>
+                                 <p> +7 (965) 612-65-09</p>
+                                 <div class="contact-socials">
+                                     <h4>Мы в соцсетях:</h4>
+                                     <div class="social-icons">
+                                         <a href="https://vk.com/wizardzelenodolsk" target="_blank" rel="noopener noreferrer" title="VK"><img src="images/icons/vk.svg" alt="VK"></a>
+                                         <a href="https://t.me/WizardOfGaming" target="_blank" rel="noopener noreferrer" title="Telegram"><img src="images/icons/tg.svg" alt="Telegram"></a>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </section> <!-- /#block8 (Контакты) -->
+
+        <!-- ======================= Блок 9: FAQ ======================= -->
+        <section id="block9" class="faq-block section-padding" aria-labelledby="faq-title-h2">
+            <div class="container">
+                <h2 class="section-title" id="faq-title-h2">
+                    ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ (<span id="faq-count">0</span>)
+                </h2>
+                <div class="faq-list">
+                    <div> <!-- Обертка для пары вопрос-ответ -->
+                        <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-1">
+                            <span>Как забронировать компьютер или игровую зону?</span>
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAY0lEQVR4nO2TQQqAIBAA15f5nG69pW691olgQwMNsbXTDuxFZYY9KOI4vwKEa2bKd+Awj5DlN3YRnvKkg54Fa/kKLEVkfJOaXPLdt8ib3CSiga0lr0SGt4gd7+K0v+E4jnRxAsic2STrTw+3AAAAAElFTkSuQmCC" alt="стрелка" class="faq-arrow">
+                        </div>
+                        <div class="faq-answer" id="faq-answer-1" role="region" aria-hidden="true">
+                            <div class="faq-answer-content">
+                                <p>Забронировать компьютер можно по телефону одного из наших клубов, указанному в разделе "Контакты", или через личные сообщения в наших социальных сетях (VK, Telegram). Рекомендуем бронировать заранее, особенно на вечернее время и в выходные дни.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div> <!-- Обертка для пары вопрос-ответ -->
+                        <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-2">
+                            <span>Какие игры у вас установлены?</span>
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAY0lEQVR4nO2TQQqAIBAA15f5nG69pW691olgQwMNsbXTDuxFZYY9KOI4vwKEa2bKd+Awj5DlN3YRnvKkg54Fa/kKLEVkfJOaXPLdt8ib3CSiga0lr0SGt4gd7+K0v+E4jnRxAsic2STrTw+3AAAAAElFTkSuQmCC" alt="стрелка" class="faq-arrow">
+                        </div>
+                        <div class="faq-answer" id="faq-answer-2" role="region" aria-hidden="true">
+                            <div class="faq-answer-content">
+                                <p>У нас установлен широкий выбор популярных игр, включая Dota 2, CS:GO (CS2), Valorant, Apex Legends, Fortnite, PUBG, а также множество других хитов и новинок. Полный список игр доступен <a href="games.html" class="faq-anchor-link">на странице "Игры"</a>. Если вашей любимой игры нет, сообщите администратору, и мы постараемся ее добавить!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div> <!-- Обертка для пары вопрос-ответ -->
+                        <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-3">
+                            <span>Можно ли приходить со своей едой и напитками?</span>
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAY0lEQVR4nO2TQQqAIBAA15f5nG69pW691olgQwMNsbXTDuxFZYY9KOI4vwKEa2bKd+Awj5DlN3YRnvKkg54Fa/kKLEVkfJOaXPLdt8ib3CSiga0lr0SGt4gd7+K0v+E4jnRxAsic2STrTw+3AAAAAElFTkSuQmCC" alt="стрелка" class="faq-arrow">
+                        </div>
+                        <div class="faq-answer" id="faq-answer-3" role="region" aria-hidden="true">
+                            <div class="faq-answer-content">
+                                <p>В наших клубах есть собственный бар с разнообразными напитками и снеками. Приносить свою еду и напитки, как правило, не разрешается, за исключением особых случаев (например, торт на День Рождения по предварительной договоренности с администрацией). Подробнее смотрите в <a href="#block6" class="faq-anchor-link">правилах клуба</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div> <!-- Обертка для пары вопрос-ответ -->
+                        <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-4">
+                            <span>Есть ли у вас скидки, акции или программы лояльности?</span>
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAY0lEQVR4nO2TQQqAIBAA15f5nG69pW691olgQwMNsbXTDuxFZYY9KOI4vwKEa2bKd+Awj5DlN3YRnvKkg54Fa/kKLEVkfJOaXPLdt8ib3CSiga0lr0SGt4gd7+K0v+E4jnRxAsic2STrTw+3AAAAAElFTkSuQmCC" alt="стрелка" class="faq-arrow">
+                        </div>
+                        <div class="faq-answer" id="faq-answer-4" role="region" aria-hidden="true">
+                            <div class="faq-answer-content">
+                                <p>Да, мы регулярно проводим различные акции и предлагаем скидки для наших посетителей! Это могут быть бонусы за пополнение игрового времени, скидки на пакетные предложения, акции "Приведи друга", специальные предложения для именинников и многое другое. Актуальную информацию обо всех действующих акциях вы можете найти в <a href="#block5" class="faq-anchor-link">разделе "Акции"</a> на нашем сайте или уточнить у администратора в любом из наших клубов.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div> <!-- Обертка для пары вопрос-ответ -->
+                        <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-5">
+                            <span>Какие возрастные ограничения для посещения клуба?</span>
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAY0lEQVR4nO2TQQqAIBAA15f5nG69pW691olgQwMNsbXTDuxFZYY9KOI4vwKEa2bKd+Awj5DlN3YRnvKkg54Fa/kKLEVkfJOaXPLdt8ib3CSiga0lr0SGt4gd7+K0v+E4jnRxAsic2STrTw+3AAAAAElFTkSuQmCC" alt="стрелка" class="faq-arrow">
+                        </div>
+                        <div class="faq-answer" id="faq-answer-5" role="region" aria-hidden="true">
+                            <div class="faq-answer-content">
+                                <p>Согласно <a href="#block6" class="faq-anchor-link">правилам клуба</a>, самостоятельный вход разрешен лицам, достигшим 14 лет. Посетители с 12 лет могут находиться в клубе в дневное время в сопровождении законных представителей (родителей или опекунов). В ночное время (обычно с 22:00 до 08:00, точное время уточняйте у администратора) несовершеннолетним находиться в клубе запрещено без сопровождения законных представителей, согласно действующему законодательству РФ.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =========================================================================
+                                    ПОДВАЛ САЙТА
+    ========================================================================== -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-left">
+                <div class="footer-logo">
+                    <a href="/" aria-label="На главную Only Wizard (логотип в подвале)">
+                        <img src="images/logo/favicon.png" alt="Маленький логотип Only Wizard в подвале">
+                    </a>
+                </div>
+                <div class="copyright">
+                    © <span id="currentYear">2025</span> ONLY WIZARD. Все права защищены.<br>
+                    ОГРН: 320169000000430 │ ИНН: 165711501357<br>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Кнопка "Наверх" -->
+    <button id="scrollToTopBtn" class="scroll-to-top" title="Наверх" type="button">
+        <img src="images/arrow/up.svg" alt="Прокрутить страницу наверх">
+    </button>
+
+<!-- === Модальное окно "Хорошее место" === -->
+<div id="yandex-badge-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+    <div class="modal-content">
+        <button class="modal-close-btn" aria-label="Закрыть модальное окно" type="button">×</button>
+        <div class="modal-icon">
+            <!-- Здесь можно вставить SVG значка или более крупное изображение -->
+            <img src="images/yandex/yandex-good-place-2025-large.png" alt="Награда Хорошее место 2025">
+            <!-- Предполагается, что у вас есть увеличенная версия значка -->
+        </div>
+        <h3 id="modal-title" class="modal-title-text">Хорошее место 2025</h3>
+        <p class="modal-subtitle">
+            Награда для мест, которые пользователи Карт особенно любят: высоко оценивают, хвалят в отзывах и рекомендуют
+        </p>
+        <a href="https://yandex.ru/project/maps/goodplace/" target="_blank" rel="noopener noreferrer" class="modal-details-link btn"> <!-- Используем класс .btn для стилизации кнопки -->
+            Подробнее о награде
+        </a>
+    </div>
+</div>
+
+<script src="js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</body>
+</html>

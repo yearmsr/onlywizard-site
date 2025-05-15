@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игры</title>
+    <link rel="icon" href="images/logo/favicon.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        :root {
+            --color-background: #1a1a1a;
+            --color-darker-background: #0d0d0d;
+            --color-filter-bar-bg: transparent; 
+            --color-table-bg: #16161a;
+            --color-table-header-bg: #2a2a2e;
+            --color-table-row-odd-bg: #16161a;
+            --color-table-row-even-bg: #1c1c21;
+            --color-input-bg: #2c2c32;
+            --color-input-hover-bg: #383840;
+            --color-dropdown-option-hover-bg: #4a4a52; 
+            --color-white: #ffffff;
+            --color-text: #d1d1d1;
+            --color-text-secondary: #8c8c96;
+            --color-accent: #ff6d00;
+            --color-badge-text-pc-console: #856aff; /* Новый цвет текста для PC/Console значков */
+            --color-badge-bg-pc-console: #383853;   /* Новый фон для PC/Console значков */
+            --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif;
+        }
+
+        body {
+            background-color: var(--color-darker-background);
+            color: var(--color-text);
+            font-family: var(--font-main);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .site-header { /* Переопределение для games.html, чтобы шапка не была sticky */
+            position: relative !important; 
+        }
+
+        .games-page-wrapper {
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .games-main-title {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: var(--color-white);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .games-filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 15px; 
+            padding: 12px 0px; /* Убран горизонтальный padding, т.к. фон прозрачный */
+            background-color: var(--color-filter-bar-bg);
+            /* border-radius: 6px; Убрано, т.к. фон прозрачный */
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .games-filter-bar label {
+            font-size: 0.85em;
+            color: var(--color-text-secondary);
+            margin-right: 6px;
+        }
+        
+        .search-input-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            background-color: var(--color-input-bg);
+            border: none;
+            border-radius: 5px;
+            flex-grow: 1;
+            min-width: 200px;
+            transition: background-color 0.2s ease;
+        }
+        .search-input-container:hover {
+            background-color: var(--color-input-hover-bg);
+        }
+        .search-input-container .search-icon {
+            padding: 0 10px;
+            display: flex;
+            align-items: center;
+        }
+         .search-input-container .search-icon img {
+            width: 16px;
+            height: 16px;
+            filter: brightness(1.8); 
+        }
+
+        .games-filter-bar input[type="search"] {
+            padding: 9px 10px 9px 0;
+            border-radius: 0 5px 5px 0;
+            border: none;
+            background-color: transparent;
+            color: var(--color-text);
+            font-family: var(--font-main);
+            font-size: 0.9em;
+            flex-grow: 1;
+            outline: none;
+        }
+        .games-filter-bar input[type="search"]::placeholder {
+            color: var(--color-text-secondary);
+        }
+        
+        .filter-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .custom-select-wrapper {
+            position: relative;
+            min-width: 180px;
+        }
+
+        .custom-select-button {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 9px 12px;
+            background-color: var(--color-input-bg);
+            border: none;
+            border-radius: 5px;
+            color: var(--color-text);
+            font-family: var(--font-main);
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            text-align: left;
+        }
+        .custom-select-button:hover {
+            background-color: var(--color-input-hover-bg);
+        }
+        .custom-select-button .custom-select-arrow {
+             width: 16px;
+             height: 16px;
+             transition: transform 0.2s ease;
+             display: flex;
+             align-items: center;
+             transform: rotate(180deg); /* Default: UP (стрелка вверх) */
+        }
+         .custom-select-button .custom-select-arrow img { 
+            width: 100%;
+            height: auto;
+         }
+        .custom-select-button.open .custom-select-arrow {
+            transform: rotate(0deg); /* Open: DOWN (стрелка вниз) */
+        }
+
+        .custom-select-options {
+            position: absolute;
+            top: calc(100% + 4px);
+            left: 0;
+            right: 0;
+            background-color: var(--color-input-hover-bg);
+            border: none; 
+            border-radius: 5px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            z-index: 10;
+            max-height: 200px;
+            overflow-y: auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        .custom-select-options li {
+            padding: 9px 12px;
+            font-size: 0.9em;
+            color: var(--color-text);
+            cursor: pointer;
+        }
+        .custom-select-options li:hover,
+        .custom-select-options li.selected { 
+            background-color: var(--color-dropdown-option-hover-bg); 
+            color: var(--color-white);
+        }
+
+
+        .games-table-container {
+            width: 100%;
+            max-width: 1000px;
+            overflow-x: auto;
+        }
+
+        .games-list-table {
+            width: 100%;
+            border-collapse: collapse;
+            color: var(--color-text);
+            background-color: var(--color-table-bg);
+        }
+
+        .games-list-table th,
+        .games-list-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: none; 
+        }
+        
+        .games-list-table th {
+            font-size: 0.85em;
+            font-weight: 500;
+            color: var(--color-text-secondary);
+            text-transform: none;
+            letter-spacing: 0.3px;
+            background-color: var(--color-table-header-bg);
+        }
+
+        .games-list-table th .header-content {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .games-list-table th .header-icon img {
+            width: 16px;
+            height: auto;
+        }
+
+        .games-list-table tbody tr:nth-child(odd) {
+            background-color: var(--color-table-row-odd-bg);
+        }
+        .games-list-table tbody tr:nth-child(even) {
+            background-color: var(--color-table-row-even-bg);
+        }
+
+        .games-list-table td .game-name-cell {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .games-list-table td .game-name-cell .game-number {
+            color: var(--color-text-secondary);
+            min-width: 20px;
+            text-align: left;
+        }
+        .games-list-table td .game-name-cell .game-name-text:hover {
+            color: var(--color-accent);
+            cursor: pointer;
+        }
+
+        .games-list-table td .game-icon {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            border-radius: 3px;
+        }
+
+        .games-list-table td .game-type-badge {
+            display: inline-block;
+            padding: 4px 9px;
+            font-size: 0.7em;
+            font-weight: 500;
+            border-radius: 4px;
+            background-color: var(--color-badge-bg-pc-console); /* Фон для PC/Console */
+            color: var(--color-badge-text-pc-console);      /* Текст для PC/Console */
+            text-transform: uppercase;
+            line-height: 1;
+        }
+        .games-list-table td .game-type-badge.mobile {
+            background-color: var(--color-mobile-badge-bg);
+            color: var(--color-white);
+        }
+        
+        .games-list-table td.playing-percentage-cell {
+            font-weight: 500;
+            color: var(--color-text);
+        }
+
+        .site-footer {
+            background-color: var(--color-darker-background) !important;
+            border-top: none !important; /* Убираем верхнюю границу подвала */
+        }
+        
+        .footer-left {
+            display: flex;
+            align-items: center; /* Вертикальное выравнивание лого и текста */
+            gap: 15px;          /* Отступ между лого и текстом */
+        }
+        .footer-logo img {
+            display: block; /* Убирает возможное лишнее пространство под img */
+            /* max-height: 40px; /* Можно задать, если логотип слишком большой */
+        }
+        .copyright {
+            font-size: 0.85em;
+            line-height: 1.5;
+            color: var(--color-text-secondary);
+        }
+
+
+        @media (max-width: 768px) {
+            .games-page-wrapper { padding: 40px 10px; }
+            .games-main-title { font-size: 1.8em; margin-bottom: 20px; }
+            .games-filter-bar { flex-direction: column; gap: 12px; padding: 10px 0px; }
+            .games-filter-bar .search-input-container, 
+            .games-filter-bar .custom-select-wrapper { width: 100%; }
+            
+            .games-list-table th,
+            .games-list-table td { padding: 9px 7px; font-size: 0.8em; }
+            .games-list-table td .game-icon { width: 20px; height: 20px; }
+             .games-list-table td .game-name-cell .game-number {
+                min-width: 15px;
+            }
+
+            .footer-left { /* Адаптация для футера на мобильных */
+                flex-direction: column;
+                align-items: flex-start; /* Выравнивание по левому краю */
+                gap: 10px;
+            }
+            .copyright {
+                text-align: left; /* Если нужно выровнять текст по левому краю в столбец */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-container">
+            <button class="burger-menu" aria-label="Открыть меню" aria-expanded="false" type="button">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </button>
+            <nav class="header-nav header-nav-left desktop-nav" aria-label="Левая навигация">
+                <a href="/#block2">НАШИ КЛУБЫ</a>
+                <a href="https://t.me/WizardLoungeBar" target="_blank" rel="noopener noreferrer">LOUNGE BAR</a>
+            </nav>
+            <div class="header-logo">
+                <a href="/" aria-label="На главную Only Wizard">
+                    <img src="images/logo/only-wizard-logo.png" alt="Логотип Only Wizard">
+                </a>
+            </div>
+             <div class="header-nav-right desktop-nav" role="navigation" aria-label="Правая навигация и действия">
+                <a href="/#block8">КОНТАКТЫ</a>
+                <a href="https://vk.com/vyynoos" target="_blank" rel="noopener noreferrer" class="btn btn-primary">ФК ONLY WIZARD</a>
+             </div>
+            <nav class="mobile-menu" id="mobileMenu" aria-label="Мобильное меню">
+                 <a href="/#block2">НАШИ КЛУБЫ</a>
+                 <a href="https://t.me/WizardLoungeBar" target="_blank" rel="noopener noreferrer">LOUNGE BAR</a>
+                 <a href="https://vk.com/vyynoos" target="_blank" rel="noopener noreferrer">ФК ONLY WIZARD</a>
+                 <a href="/#block8">КОНТАКТЫ</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="games-page-wrapper">
+        <h1 class="games-main-title">Топ киберспортивных игр клуба</h1>
+
+        <div class="games-filter-bar">
+            <div class="search-input-container">
+                <span class="search-icon">
+                     <img src="images/icons/search.svg" alt="Поиск">
+                </span>
+                <input type="search" id="gameSearch" placeholder="Поиск игры по названию">
+            </div>
+            
+            <div class="filter-group">
+                <label for="gameTypeFilterButton">Тип:</label>
+                <div class="custom-select-wrapper" id="gameTypeFilterWrapper">
+                    <button class="custom-select-button" id="gameTypeFilterButton" aria-haspopup="listbox" aria-expanded="false">
+                        <span class="custom-select-value">Все платформы</span>
+                        <span class="custom-select-arrow" id="gameTypeFilterArrow">
+                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAY0lEQVR4nO2TQQqAIBAA15f5nG69pW691olgQwMNsbXTDuxFZYY9KOI4vwKEa2bKd+Awj5DlN3YRnvKkg54Fa/kKLEVkfJOaXPLdt8ib3CSiga0lr0SGt4gd7+K0v+E4jnRxAsic2STrTw+3AAAAAElFTkSuQmCC" alt="стрелка">
+                        </span>
+                    </button>
+                    <ul class="custom-select-options" id="gameTypeFilterOptions" role="listbox" style="display: none;">
+                        <li data-value="all" role="option">Все платформы</li>
+                        <li data-value="pc" role="option">PC</li>
+                        <li data-value="console" role="option">Console</li>
+                    </ul>
+                    <input type="hidden" id="gameTypeFilter" value="all">
+                </div>
+            </div>
+        </div>
+
+        <div class="games-table-container">
+            <table class="games-list-table">
+                <thead>
+                    <tr>
+                        <th>
+                            <div class="header-content">
+                                <span class="header-icon">
+                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAVUlEQVR4nO3VMQqAMBBE0T2ewVubmyTe49sIahCRFBHhv3aLgYFhI6RRgBlYgQqkkcGVQ2lumT75q+DlTXDawwswddUm3XHHcW3DHeuH8B+fuGMpHmwHAxf5nL4N4AAAAABJRU5ErkJggg==" alt="список">
+                                </span>
+                                Имя
+                            </div>
+                        </th>
+                        <th>Тип</th>
+                        <th>% играющих</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- ДАННЫЕ ЗАПОЛНЯЮТСЯ JAVASCRIPT -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-left">
+                <div class="footer-logo">
+                    <a href="/" aria-label="На главную Only Wizard (логотип в подвале)">
+                        <img src="images/logo/favicon.png" alt="Маленький логотип Only Wizard в подвале">
+                    </a>
+                </div>
+                <div class="copyright">
+                    © <span id="currentYear">2025</span> ONLY WIZARD. Все права защищены.<br>
+                    ОГРН: 320169000000430 │ ИНН: 165711501357<br>
+                </div>
+            </div>
+            <div class="footer-right">
+                 <!-- Содержимое footer-right может быть здесь или он может оставаться пустым -->
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const yearSpan = document.getElementById('currentYear');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+
+            const burgerButton = document.querySelector('.burger-menu');
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (burgerButton && mobileMenu) {
+                burgerButton.addEventListener('click', () => {
+                    burgerButton.classList.toggle('is-active');
+                    mobileMenu.classList.toggle('is-active');
+                    const isExpanded = burgerButton.getAttribute('aria-expanded') === 'true';
+                    burgerButton.setAttribute('aria-expanded', !isExpanded);
+                });
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', (e) => { 
+                        const href = link.getAttribute('href');
+                        if (mobileMenu.classList.contains('is-active')) {
+                            burgerButton.classList.remove('is-active');
+                            mobileMenu.classList.remove('is-active');
+                            burgerButton.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                });
+            }
+
+            const tbody = document.querySelector('.games-list-table tbody');
+            const searchInput = document.getElementById('gameSearch');
+            
+            const gameTypeFilterWrapper = document.getElementById('gameTypeFilterWrapper');
+            const gameTypeFilterButton = document.getElementById('gameTypeFilterButton');
+            const gameTypeFilterValueSpan = gameTypeFilterButton.querySelector('.custom-select-value');
+            const gameTypeFilterOptions = document.getElementById('gameTypeFilterOptions');
+            const hiddenGameTypeInput = document.getElementById('gameTypeFilter');
+
+            // Устанавливаем "Все платформы" как выбранное по умолчанию при загрузке
+            const defaultOption = gameTypeFilterOptions.querySelector('li[data-value="all"]');
+            if (defaultOption) {
+                 gameTypeFilterValueSpan.textContent = defaultOption.textContent;
+                 hiddenGameTypeInput.value = defaultOption.dataset.value;
+                 // defaultOption.classList.add('selected'); // Убрано выделение "Все платформы" в списке по умолчанию
+            }
+
+
+            const initialRowsData = [
+                { displayName: 'Counter-Strike 2', iconSrc: 'images/games/cs2.svg', displayType: 'PC', playingPercentage: 78 },
+                { displayName: 'Dota 2', iconSrc: 'images/games/dota2.svg', displayType: 'PC', playingPercentage: 75 },
+                { displayName: 'Fortnite', iconSrc: 'images/games/fortnite.svg', displayType: 'PC / Console', playingPercentage: 65 },
+                { displayName: 'Apex Legends', iconSrc: 'images/games/apex.svg', displayType: 'PC / Console', playingPercentage: 62 },
+                { displayName: 'League of Legends', iconSrc: 'images/games/lol.svg', displayType: 'PC', playingPercentage: 85 },
+                { displayName: 'Valorant', iconSrc: 'images/games/valorant.svg', displayType: 'PC', playingPercentage: 70 },
+                { displayName: 'PUBG: Battlegrounds', iconSrc: 'images/games/pubg.svg', displayType: 'PC / Console', playingPercentage: 58 },
+                { displayName: 'Call of Duty Series', iconSrc: 'images/games/cod.svg', displayType: 'PC / Console', playingPercentage: 55 },
+                { displayName: 'Grand Theft Auto V', iconSrc: 'images/games/gta5.svg', displayType: 'PC / Console', playingPercentage: 50 },
+                { displayName: 'Rust', iconSrc: 'images/games/rust.svg', displayType: 'PC', playingPercentage: 45 },
+                { displayName: 'World of Tanks', iconSrc: 'images/games/wot.svg', displayType: 'PC', playingPercentage: 35 }
+            ].map(item => ({
+                ...item,
+                name: item.displayName.toLowerCase(),
+                type: item.displayType.toLowerCase() 
+            }));
+
+            let currentSort = { column: 'playingPercentage', order: 'desc' }; 
+
+            function renderTable(rowsDataToRender) {
+                tbody.innerHTML = '';
+                rowsDataToRender.forEach((data, index) => {
+                    const displayedNumber = index + 1;
+                    const newRow = document.createElement('tr');
+                    let typeBadgeClass = "game-type-badge";
+                    if (data.type.includes('mobile')) { 
+                        typeBadgeClass += " mobile";
+                    }
+
+                    newRow.innerHTML = `
+                        <td>
+                            <div class="game-name-cell">
+                                <span class="game-number">${displayedNumber}.</span>
+                                <img src="${data.iconSrc}" alt="${data.displayName}" class="game-icon">
+                                <span class="game-name-text">${data.displayName}</span>
+                            </div>
+                        </td>
+                        <td><span class="${typeBadgeClass}">${data.displayType}</span></td>
+                        <td class="playing-percentage-cell">${data.playingPercentage}%</td>
+                    `;
+                    tbody.appendChild(newRow);
+                });
+            }
+            
+            function sortRowsData(rowsData) {
+                const { column, order } = currentSort;
+                return [...rowsData].sort((a, b) => {
+                    let valA = (column === 'name') ? a.name : a.playingPercentage;
+                    let valB = (column === 'name') ? b.name : b.playingPercentage;
+                    
+                    if (valA < valB) return order === 'asc' ? -1 : 1;
+                    if (valA > valB) return order === 'asc' ? 1 : -1;
+                    return 0;
+                });
+            }
+            
+            function filterAndSortRows() {
+                let filteredRowsData = [...initialRowsData];
+                const searchTerm = searchInput.value.toLowerCase();
+                const selectedTypeFilter = hiddenGameTypeInput.value;
+
+                if (searchTerm) {
+                    filteredRowsData = filteredRowsData.filter(data => data.name.includes(searchTerm));
+                }
+
+                if (selectedTypeFilter === 'pc') {
+                    filteredRowsData = filteredRowsData.filter(data => data.type.includes('pc'));
+                } else if (selectedTypeFilter === 'console') {
+                    filteredRowsData = filteredRowsData.filter(data => data.type.includes('console'));
+                }
+
+                const sortedRowsData = sortRowsData(filteredRowsData);
+                renderTable(sortedRowsData);
+            }
+
+            gameTypeFilterButton.addEventListener('click', () => {
+                const isOpen = gameTypeFilterOptions.style.display === 'block';
+                gameTypeFilterOptions.style.display = isOpen ? 'none' : 'block';
+                gameTypeFilterButton.setAttribute('aria-expanded', String(!isOpen));
+                gameTypeFilterButton.classList.toggle('open', !isOpen);
+            });
+
+            gameTypeFilterOptions.querySelectorAll('li').forEach(option => {
+                option.addEventListener('click', () => {
+                    gameTypeFilterValueSpan.textContent = option.textContent;
+                    hiddenGameTypeInput.value = option.dataset.value;
+                    gameTypeFilterOptions.querySelectorAll('li').forEach(opt => opt.classList.remove('selected'));
+                    option.classList.add('selected'); 
+                    gameTypeFilterOptions.style.display = 'none';
+                    gameTypeFilterButton.setAttribute('aria-expanded', 'false');
+                    gameTypeFilterButton.classList.remove('open');
+                    filterAndSortRows(); 
+                });
+            });
+
+            document.addEventListener('click', (event) => {
+                if (!gameTypeFilterWrapper.contains(event.target)) {
+                    gameTypeFilterOptions.style.display = 'none';
+                    gameTypeFilterButton.setAttribute('aria-expanded', 'false');
+                    gameTypeFilterButton.classList.remove('open');
+                }
+            });
+
+            searchInput.addEventListener('input', filterAndSortRows);
+            filterAndSortRows(); 
+        });
+    </script>
+</body>
+</html>
