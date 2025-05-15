@@ -1,0 +1,1413 @@
+/* ==========================================================================
+   1. Глобальные стили и переменные
+   ========================================================================== */
+   :root {
+    /* Цветовая палитра */
+    --color-orange: #FFA500;
+    --color-emerald: #2ECC71;
+    --color-beige: #F5F5DC;
+    --color-brown: #A0522D;
+    --color-gray: #808080;
+    --color-red: #FF0000;
+    --color-dark-red: #8B0000;
+    --color-black: #1a1a1a;
+    --color-white: #ffffff;
+
+    /* Назначение цветов */
+    --color-background: var(--color-black);
+    --color-text: var(--color-beige);
+    --color-text-secondary: var(--color-gray);
+    --color-accent: #ff6d00; /* Основной акцентный (оранжевый) */
+    --color-accent-secondary: var(--color-emerald);
+    --color-link-hover: var(--color-accent);
+
+    /* Кнопки */
+    --color-button-primary-bg: rgba(230, 81, 0, 0.9); /* #e65100 90% */
+    --color-button-primary-text: var(--color-white);
+    --color-button-primary-shadow: rgba(130, 119, 23, 0.5); /* #827717 50% */
+    --color-button-primary-hover-bg: rgba(255, 255, 255, 0.9); /* #ffffff 90% */
+    --color-button-primary-hover-text: #e65100;
+    --color-button-primary-hover-shadow: rgba(158, 158, 158, 0.5); /* #9e9e9e 50% */
+
+    /* Шрифты */
+    --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif;
+}
+
+/* Сброс и базовые настройки */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-white);
+    margin-bottom: 1rem;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.section-padding {
+    padding: 60px 0;
+}
+
+/* ==========================================================================
+   2. Шапка сайта (Header)
+   ========================================================================== */
+.site-header {
+    background-color: rgba(0, 0, 0, 0.8);
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding-top: 26px;
+    padding-bottom: 26px;
+}
+
+.header-logo img {
+    height: 150px;
+    width: auto;
+}
+
+/* Навигация в шапке */
+.header-nav-left a,
+.header-nav-right a:not(.btn) {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 40px;
+    color: var(--color-white);
+    padding: 10px 0;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.header-nav-left a:hover,
+.header-nav-right a:not(.btn):hover {
+    color: var(--color-accent);
+}
+
+.header-nav-left,
+.header-nav-right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Кнопка "ФК ONLY WIZARD" */
+.btn {
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1.2;
+    border-radius: 8px;
+    padding: 12px 24px;
+    min-width: 205px;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary {
+    color: var(--color-button-primary-text);
+    background-color: var(--color-button-primary-bg);
+    box-shadow: 0 8px 16px var(--color-button-primary-shadow);
+}
+
+.btn-primary:hover {
+    color: var(--color-button-primary-hover-text);
+    background-color: var(--color-button-primary-hover-bg);
+    box-shadow: 0 8px 16px var(--color-button-primary-hover-shadow);
+}
+
+/* Бургер-меню */
+.burger-menu {
+    display: none; /* Скрыто на десктопе */
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 40px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 1010;
+    padding: 0;
+    position: relative;
+}
+
+.burger-line {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.7);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    margin: 2.5px auto;
+}
+
+.burger-menu.is-active .burger-line:nth-child(1) {
+    transform: translateY(3.5px) rotate(45deg);
+}
+.burger-menu.is-active .burger-line:nth-child(2) {
+     transform: translateY(-3.5px) rotate(-45deg);
+}
+
+/* Мобильное меню */
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-black);
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1005;
+}
+
+.mobile-menu a {
+    display: block;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.mobile-menu.is-active {
+    display: block;
+}
+
+/* ==========================================================================
+   3. Подвал сайта (Footer)
+   ========================================================================== */
+.site-footer {
+    background-color: var(--color-black);
+    color: var(--color-text-secondary);
+    padding: 40px 0;
+    border-top: 1px solid var(--color-gray);
+    margin-top: 60px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-left {
+    display: flex;
+    align-items: center; /* Вертикальное выравнивание лого и текста */
+    gap: 15px;          /* Отступ между лого и текстом */
+}
+.footer-logo img {
+    display: block; /* Убирает возможное лишнее пространство под img */
+    /* max-height: 40px; /* Можно задать, если логотип слишком большой */
+    height: 40px;
+    margin-bottom: 15px;
+}
+.copyright {
+    font-size: 0.85em;
+    line-height: 1.5;
+    color: var(--color-text-secondary);
+}
+
+/* Ссылки на соцсети (если они вернутся в подвал) */
+.social-links { /* Этот класс используется в Блоке 7, оставим здесь, если вдруг пригодится */
+    text-align: right;
+}
+.social-links a {
+    margin-left: 15px;
+    font-size: 1.5em;
+    color: var(--color-text);
+}
+.social-links a:hover {
+    color: var(--color-accent);
+}
+
+
+/* ==========================================================================
+   4. Блок 1: Вступление
+   ========================================================================== */
+.intro-block {
+    overflow: hidden;
+}
+
+.intro-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.intro-text-content {
+    flex: 1;
+    max-width: 55%;
+    padding-right: 20px;
+}
+
+.intro-heading {
+    font-size: 3.5em;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--color-white);
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+.intro-paragraph {
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin-bottom: 15px;
+    text-align: justify;
+}
+.intro-paragraph:last-child {
+    margin-bottom: 0;
+}
+
+.intro-image-content {
+    flex-basis: 40%;
+    max-width: 40%;
+    align-self: stretch;
+    display: flex;
+}
+
+.intro-image-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+
+/* ==========================================================================
+   5. Блок 2: Форматы / Филиалы
+   ========================================================================== */
+.clubs-block .section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Табы выбора филиала */
+.location-tabs { /* Также используется в Блоке 3 и 5 для кнопок филиалов */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+    gap: 25px;
+}
+
+/* Кнопки табов и суб-табов */
+.tab-button,
+.sub-tab-button,
+.sub-tab-link {
+    font-family: var(--font-main);
+    font-weight: 600;
+    color: var(--color-text);
+    background-color: transparent;
+    border: none;
+    padding: 12px 25px;
+    margin: 0;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    text-decoration: none;
+    line-height: 1.4;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 180px;
+}
+.tab-button { /* Основные табы филиалов */
+    font-size: 18px;
+    text-transform: uppercase;
+}
+.sub-tab-button,
+.sub-tab-link { /* Кнопки "Цены", "Железо", "Игры" */
+    font-size: 16px;
+    min-width: 150px;
+    padding: 10px 20px;
+}
+
+/* Псевдоэлементы для границ неактивных кнопок (табов) */
+.tab-button:not(.active)::before,
+.sub-tab-button::before, /* Применяем ко всем sub-tab кнопкам */
+.sub-tab-link::before {   /* Применяем к ссылке Игры */
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-left: 1px solid #c73f00;
+    border-top: 1px solid #c73f00;
+    box-sizing: border-box;
+    pointer-events: none;
+    transition: border-color 0.3s ease;
+}
+.tab-button:not(.active)::after,
+.sub-tab-button::after,   /* Применяем ко всем sub-tab кнопкам */
+.sub-tab-link::after {    /* Применяем к ссылке Игры */
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 35px; /* Ширина уголка */
+    height: 15px; /* Высота уголка */
+    border-right: 1px solid #c73f00;
+    border-bottom: 1px solid #c73f00;
+    box-sizing: border-box;
+    pointer-events: none;
+    transition: border-color 0.3s ease;
+}
+
+/* Наведение на неактивные кнопки (табы) */
+.tab-button:not(.active):hover,
+.sub-tab-button:hover,
+.sub-tab-link:hover {
+    background-color: #c73f00;
+    color: var(--color-white);
+}
+.tab-button:not(.active):hover::before,
+.tab-button:not(.active):hover::after,
+.sub-tab-button:hover::before,
+.sub-tab-button:hover::after,
+.sub-tab-link:hover::before,
+.sub-tab-link:hover::after {
+    border-color: transparent; /* Скрываем кастомные границы при наведении */
+}
+
+/* Активная кнопка таба филиала (MAIN TAB) */
+.tab-button.active {
+    background-color: var(--color-accent); /* #ff6d00 */
+    color: var(--color-white);
+    cursor: default;
+}
+.tab-button.active::before,
+.tab-button.active::after {
+    border-color: transparent; /* Скрываем границы на активной */
+}
+
+/* --- ДОБАВИТЬ ЭТИ СТИЛИ --- */
+/* Активная кнопка суб-таба (Цены, Железо, Связаться) */
+.sub-tab-button.active {
+    background-color: var(--color-accent); /* Такой же стиль, как у активного основного таба */
+    color: var(--color-white);
+    cursor: default;
+}
+.sub-tab-button.active::before,
+.sub-tab-button.active::after {
+    border-color: transparent; /* Скрываем кастомные границы на активной кнопке */
+}
+
+/* Контент филиала */
+.location-content-area { margin-top: 30px; }
+.location-content { display: none; animation: fadeIn 0.5s ease-in-out; }
+.location-content.active { display: block; }
+
+.content-main { display: flex; gap: 40px; margin-bottom: 40px; }
+.content-text { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.content-text h3 { font-size: 1.8em; margin-bottom: 20px; color: var(--color-white); }
+.content-text p { margin-bottom: 15px; line-height: 1.7; color: var(--color-text); }
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px 30px;
+    padding-top: 15px;
+    margin-bottom: 30px;
+}
+.stat-label { display: block; font-size: 0.95em; color: #c73f00; margin-bottom: 5px; font-weight: 500; }
+.stat-value { display: block; font-size: 1.4em; font-weight: 600; color: var(--color-white); line-height: 1.3; }
+
+.content-sub-tabs { display: flex; justify-content: flex-start; align-items: center; flex-wrap: wrap; gap: 20px; }
+
+.content-image { flex-basis: 450px; max-width: 450px; height: 450px; margin-top: 0; position: relative; overflow: hidden; border-radius: 10px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); }
+.content-image img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+
+/* Скрытые блоки для "Цены", "Железо", "Связаться" */
+.sub-content { display: none; padding: 25px; margin-top: 25px; background-color: rgba(255, 255, 255, 0.05); border-radius: 8px; animation: fadeIn 0.5s ease-in-out; clear: both; }
+.sub-content.active { display: block; }
+.sub-content h4 { color: var(--color-accent-secondary); margin-bottom: 15px; font-size: 1.5em; }
+.sub-content p, .sub-content ul { margin-bottom: 15px; line-height: 1.7; }
+.sub-content ul { list-style-position: inside; padding-left: 10px; }
+.sub-content li { margin-bottom: 8px; }
+.sub-content strong { color: var(--color-white); }
+
+/* "Связаться" внутри Блока 2 */
+.sub-content[data-type="bond"] h4 {
+    color: var(--color-accent-secondary); /* Или другой цвет по вашему выбору */
+    margin-bottom: 20px;
+}
+.sub-content[data-type="bond"] p {
+    margin-bottom: 15px;
+}
+.sub-content[data-type="bond"] p a { /* Ссылка на телефон */
+    color: var(--color-accent);
+    text-decoration: underline;
+}
+.sub-content[data-type="bond"] p a:hover {
+    color: var(--color-white);
+}
+
+.contact-socials-inline { /* Отличается от .social-icons в Блоке 7, если нужны разные стили */
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Расстояние между иконками */
+    margin-bottom: 20px;
+    justify-content: flex-start; /* Выравнивание по левому краю */
+}
+
+.contact-socials-inline a {
+    display: inline-block;
+    line-height: 0;
+}
+
+.contact-socials-inline img {
+    width: 36px; /* Размер иконок */
+    height: 36px;
+    opacity: 0.85;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.contact-socials-inline a:hover img {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Селекторы зон для "Железо" */
+.zone-selectors { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid var(--color-gray); }
+.zone-selector { width: 30px; height: 30px; border: 2px solid transparent; border-radius: 4px; cursor: pointer; transition: border-color 0.3s ease, transform 0.2s ease; padding: 0; }
+.zone-selector:hover { transform: scale(1.1); }
+.zone-selector.active { border-color: var(--color-white); transform: scale(1.05); }
+
+.zone-info { display: none; animation: fadeIn 0.4s ease; }
+.zone-info.active { display: block; }
+.zone-info h5 { color: var(--color-accent); margin-bottom: 15px; font-size: 1.2em; }
+
+
+/* ==========================================================================
+   6. Блок 3: Бар и Снеки
+   ========================================================================== */
+.bar-snacks-block .section-title { text-align: center; margin-bottom: 50px; font-size: 2.5em; font-weight: bold; text-transform: uppercase; }
+
+.bar-content-area { margin-bottom: 50px; }
+.bar-location-content { display: none; animation: fadeIn 0.5s ease-in-out; }
+.bar-location-content.active { display: block; }
+
+.bar-snacks-container { display: flex; justify-content: space-between; gap: 40px; }
+.bar-snacks-column { flex: 1; }
+.drinks-column, .snacks-column { padding: 15px; background-color: rgba(255, 255, 255, 0.03); border-radius: 8px; }
+.carousel-column { flex: 1.5; display: flex; align-items: center; justify-content: center; }
+.bar-snacks-column h3 { font-size: 1.5em; color: var(--color-accent); margin-bottom: 20px; text-align: center; text-transform: uppercase; }
+
+.menu-list { list-style: none; padding: 0; margin: 0; }
+.menu-list li { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 0; border-bottom: 1px dashed rgba(255, 255, 255, 0.2); font-size: 1em; }
+.menu-list li:last-child { border-bottom: none; }
+.menu-list span:first-child { flex-grow: 1; padding-right: 15px; color: var(--color-text); }
+.menu-list span:last-child { font-weight: bold; color: var(--color-white); white-space: nowrap; }
+
+.bar-carousel { width: 100%; max-width: 500px; height: 350px; border-radius: 10px; overflow: hidden; }
+.bar-carousel .swiper-slide { text-align: center; font-size: 18px; background: #333; display: flex; justify-content: center; align-items: center; }
+.bar-carousel .swiper-slide img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.bar-location-tabs { margin-top: 40px; /* Стили кнопок наследуются от .location-tabs */ }
+
+.bar-category-selectors {
+    display: flex;
+    gap: 12px; /* Немного увеличим промежуток */
+    margin-bottom: 20px; 
+    flex-wrap: wrap;
+    padding-bottom: 10px; 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+}
+
+.bar-category-button {
+    background-color: transparent;
+    color: var(--color-text); /* Цвет иконки (если SVG это позволяет через fill="currentColor") */
+    border: 1px solid var(--color-text-secondary);
+    width: 42px;  /* Фиксированная ширина */
+    height: 42px; /* Фиксированная высота */
+    border-radius: 8px; /* Слегка скругленные углы, или 50% для круглых */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+    display: flex; /* Для центрирования иконки */
+    align-items: center;
+    justify-content: center;
+    padding: 6px; /* Внутренние отступы для иконки */
+    /* Убираем текстовые свойства, если они не нужны для иконок */
+    /* font-size: 0.85em; */
+    /* font-weight: 500; */
+    /* text-transform: uppercase; */
+    /* letter-spacing: 0.5px; */
+}
+
+.bar-category-button img {
+    display: block;
+    width: 100%; 
+    height: 100%;
+    object-fit: contain; 
+    pointer-events: none; /* <<< ОБЯЗАТЕЛЬНО ОСТАВЬТЕ ЭТО СВОЙСТВО */
+    /* Если SVG иконки одного цвета и вы хотите менять его через CSS: */
+    /* filter: invert(70%) sepia(10%) saturate(500%) hue-rotate(330deg) brightness(90%) contrast(90%); */
+    /* Это пример фильтра для придания цвета. Лучше, если SVG изначально стилизуемы через fill="currentColor" */
+}
+
+.bar-category-button:hover {
+    background-color: rgba(255, 109, 0, 0.15); 
+    border-color: var(--color-accent);
+    transform: translateY(-2px); /* Легкий подъем при наведении */
+}
+/* Для активной кнопки иконка может менять цвет, если SVG позволяет */
+.bar-category-button.active {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-white); /* Для fill="currentColor" в SVG */
+    cursor: default;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.bar-category-details {
+    margin-top: 15px; /* Увеличим отступ сверху для деталей */
+    min-height: 120px;
+}
+
+.bar-category-content {
+    display: none;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.bar-category-content.active {
+    display: block;
+}
+
+.bar-snacks-column h3 {
+    padding-bottom: 10px; 
+    margin-bottom: 15px; 
+}
+
+
+/* ==========================================================================
+   7. Блок 4: Lounge Bar
+   ========================================================================== */
+.lounge-block .section-title { text-align: center; margin-bottom: 50px; font-size: 2.5em; font-weight: bold; text-transform: uppercase; }
+
+.lounge-gallery-wrapper { position: relative; margin-bottom: 40px; }
+.lounge-gallery { width: 100%; padding: 0 60px; box-sizing: border-box; }
+.lounge-gallery .swiper-slide { text-align: center; font-size: 18px; background: #222; border-radius: 10px; overflow: hidden; height: auto; }
+.lounge-gallery .swiper-slide img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.lounge-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 55px; height: 55px; background-color: rgba(255, 255, 255, 0.5); border-radius: 50%; cursor: pointer; z-index: 10; display: flex; justify-content: center; align-items: center; transition: background-color 0.3s ease; }
+.lounge-arrow:hover { background-color: rgba(255, 255, 255, 0.8); }
+.lounge-arrow::after { display: none; }
+.lounge-arrow img { width: 50px; height: auto; }
+.lounge-arrow-prev { left: -80px; }
+.lounge-arrow-next { right: -80px; }
+.swiper-button-disabled { opacity: 0.35; cursor: auto; pointer-events: none; }
+
+.lounge-text-content { text-align: center; margin-top: 30px; }
+.lounge-menu-link { display: inline-block; font-size: 1.8em; font-weight: 600; color: var(--color-white); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; position: relative; padding-bottom: 5px; }
+.lounge-menu-link::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 50px; height: 2px; background-color: var(--color-accent); transition: width 0.3s ease; }
+.lounge-menu-link:hover::after { width: 80px; }
+.lounge-menu-link:hover { color: var(--color-accent); }
+.lounge-description { font-size: 1.1em; line-height: 1.7; color: var(--color-text); max-width: 700px; margin: 0 auto; }
+
+
+/* ==========================================================================
+   8. Блок 5: Акции
+   ========================================================================== */
+.promotions-block .section-title { text-align: center; margin-bottom: 50px; font-size: 2.5em; font-weight: bold; text-transform: uppercase; }
+
+.promo-content-area { margin-bottom: 50px; }
+.promo-location-content { display: none; animation: fadeIn 0.5s ease-in-out; }
+.promo-location-content.active { display: block; }
+
+.promo-layout { display: flex; gap: 40px; background-color: rgba(255, 255, 255, 0.03); padding: 30px; border-radius: 10px; }
+
+.promo-list-column { flex: 0 0 300px; padding: 10px 5px 10px 10px; max-height: 500px; overflow-y: auto; position: relative; }
+.promo-list-column::before { content: ''; position: absolute; left: 0; top: 0; width: 30px; height: 60px; border-left: 1px solid #c73f00; border-top: 1px solid #c73f00; box-sizing: border-box; pointer-events: none; }
+.promo-list-column::after { content: ''; position: absolute; right: 0; bottom: 0; width: 30px; height: 60px; border-right: 1px solid #c73f00; border-bottom: 1px solid #c73f00; box-sizing: border-box; pointer-events: none; }
+
+.promo-list { list-style: none; padding: 0; margin: 0; }
+.promo-list-item { font-weight: 500; color: var(--color-text); padding: 12px 15px; margin-bottom: 5px; cursor: pointer; transition: background-color 0.2s ease, color 0.2s ease; position: relative; overflow: hidden; }
+.promo-list-item:last-child { margin-bottom: 0; }
+.promo-list-item:hover { background-color: rgba(128, 128, 128, 0.2); color: var(--color-white); }
+.promo-list-item.active { background-color: transparent; color: var(--color-accent); font-weight: 600; cursor: default; }
+.promo-list-item.active::after { content: ''; position: absolute; bottom: 0; left: 15px; width: 40px; height: 3px; background-color: var(--color-accent); animation: slideInBottom 0.3s ease forwards; }
+
+@keyframes slideInBottom { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+.promo-details-column { flex: 1; min-width: 0; }
+.promo-details { display: none; animation: fadeIn 0.4s ease; gap: 30px; }
+.promo-details.active { display: flex; }
+.promo-details-text { flex: 1.5; }
+.promo-details-text h3 { font-size: 1.6em; color: var(--color-accent); margin-bottom: 15px; }
+.promo-details-text p { margin-bottom: 15px; line-height: 1.7; }
+.promo-details-text strong { color: var(--color-white); }
+.promo-details-image { flex: 1; display: flex; align-items: center; justify-content: center; }
+.promo-details-image img { max-width: 100%; max-height: 350px; height: auto; border-radius: 8px; object-fit: contain; }
+
+.promo-location-tabs { margin-top: 40px; /* Стили наследуются от .location-tabs */ }
+
+
+/* ==========================================================================
+   9. Блок 6: Правила клуба
+   ========================================================================== */
+.rules-block .section-title { text-align: center; margin-bottom: 40px; font-size: 2.5em; font-weight: bold; text-transform: uppercase; }
+
+.rules-container { max-width: 900px; margin: 0 auto; background-color: var(--color-black); padding: 30px 40px; position: relative; color: var(--color-text); }
+.rules-container::before { content: ''; position: absolute; left: 0; top: 0; width: 500px; height: 100px; border-left: 1px solid #c73f00; border-top: 1px solid #c73f00; box-sizing: border-box; pointer-events: none; }
+.rules-container::after { content: ''; position: absolute; right: 0; bottom: 0; width: 500px; height: 100px; border-right: 1px solid #c73f00; border-bottom: 1px solid #c73f00; box-sizing: border-box; pointer-events: none; }
+
+.rules-container p { margin-bottom: 15px; line-height: 1.7; }
+.rules-container p strong { color: var(--color-white); display: block; margin-bottom: 8px; font-size: 1.1em; }
+.rules-container ul { list-style: none; padding-left: 0; margin-bottom: 20px; }
+.rules-container li { margin-bottom: 10px; padding-left: 20px; position: relative; }
+.rules-container li::before { content: '●'; color: var(--color-accent); position: absolute; left: 0; top: 1px; font-size: 0.9em; }
+
+.rules-container em {
+    display: flex;           
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: var(--color-text-secondary);
+}
+
+
+
+/* ==========================================================================
+   10. Блок 7: Отзывы
+   ========================================================================== */
+.reviews-block .section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.reviews-summary {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.yandex-badge-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1; 
+    max-width: 280px; 
+}
+
+.yandex-badge-link, /* Для ссылки-изображения */
+.yandex-badge-title-link { /* Для ссылки-заголовка */
+    display: inline-block; 
+    text-decoration: none; 
+    color: inherit; 
+    cursor: pointer;
+}
+
+.yandex-badge-link { /* Специфичные стили для ссылки-изображения */
+    margin-bottom: 15px; 
+}
+
+.yandex-badge-image {
+    width: 150px;
+    height: auto;
+    display: block;
+}
+
+/* Стили для заголовка внутри ссылки */
+.yandex-badge-title-link .yandex-badge-title {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--color-white); /* Исходный цвет */
+    margin-bottom: 5px; /* Отступ от подзаголовка */
+    transition: color 0.3s ease; /* Для плавного изменения цвета */
+}
+
+/* Эффект при наведении на ссылку-заголовок */
+.yandex-badge-title-link:hover .yandex-badge-title {
+    color: var(--color-accent); /* Оранжевый цвет при наведении */
+}
+
+/* Стили для подзаголовка (он теперь не ссылка) */
+.yandex-badge-subtitle {
+    font-size: 0.9em;
+    color: var(--color-text-secondary); /* Исходный цвет */
+    line-height: 1.4;
+    max-width: 280px;
+    /* transition здесь больше не нужен, так как он не меняет цвет при ховере */
+}
+
+.rating-overview {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px 30px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    flex: 1; 
+    min-height: 180px; 
+    max-width: 220px; 
+}
+
+.rating-score {
+    font-size: 3em;
+    font-weight: bold;
+    color: var(--color-white);
+    line-height: 1;
+}
+
+.rating-stars {
+    font-size: 1.4em;
+    color: #FFD700;
+    margin: 8px 0; 
+    letter-spacing: 1px;
+}
+
+.rating-count {
+    font-size: 0.9em;
+    color: var(--color-text-secondary);
+}
+
+.reviews-swiper {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 40px;
+}
+
+.reviews-swiper .swiper-wrapper { 
+    align-items: stretch; 
+}
+
+.review-card {
+    background-color: rgba(40, 40, 40, 0.7);
+    border-radius: 10px;
+    padding: 25px;
+    box-sizing: border-box;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between; 
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.1);
+    height: 100%; 
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.review-avatar {
+    width: 50px;  
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    position: relative; 
+    padding: 0; 
+}
+
+.review-avatar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%; 
+    background: linear-gradient(to right, #E73C7E, #9B59B6); 
+    z-index: 1; 
+}
+
+.review-avatar img {
+    display: block;
+    width: calc(100% - 4px); 
+    height: calc(100% - 4px);
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute; 
+    top: 2px;  
+    left: 2px;
+    z-index: 2; 
+    background-color: var(--color-background);
+}
+
+
+.review-author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.review-author-name {
+    font-weight: 600;
+    color: var(--color-white);
+    font-size: 1.1em;
+}
+
+.review-source {
+    font-size: 0.85em;
+    color: var(--color-text-secondary); 
+}
+
+.review-meta {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+}
+
+.review-stars {
+    color: #FFD700; 
+    margin-right: 10px;
+    letter-spacing: 1px;
+}
+
+.review-date {
+    color: var(--color-text-secondary);
+}
+
+.review-text {
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: var(--color-text);
+    flex-grow: 1; 
+    margin-bottom: 0;
+}
+
+/* Опционально: пагинация для карусели отзывов */
+.reviews-pagination .swiper-pagination-bullet {
+    background-color: var(--color-text-secondary);
+    opacity: 0.7;
+}
+.reviews-pagination .swiper-pagination-bullet-active {
+    background-color: var(--color-accent);
+    opacity: 1;
+}
+
+/* ==========================================================================
+   Модальное окно "Хорошее место"
+   ========================================================================== */
+.yandex-badge a { /* Делаем значок кликабельным без подчеркивания */
+    display: inline-block; /* Чтобы ссылка обернула картинку правильно */
+    cursor: pointer;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75); /* Полупрозрачный черный фон */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000; /* Поверх всего */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+    padding: 20px; /* Отступы для маленьких экранов */
+    box-sizing: border-box;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease;
+}
+
+.modal-content {
+    background-color: var(--color-white); /* Белый фон модального окна */
+    color: var(--color-black); /* Черный текст внутри */
+    padding: 30px 40px;
+    border-radius: 15px; /* Закругленные углы */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    position: relative;
+    max-width: 500px; /* Максимальная ширина окна */
+    width: 90%;
+    transform: scale(0.9);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 32px; /* Размер круга */
+    height: 32px;
+    background-color: rgba(0, 0, 0, 0.1); /* Легкий фон для круга */
+    border: none;
+    border-radius: 50%; /* Делаем круглым */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-indent: -9999px; /* Скрываем текстовый символ "×" */
+}
+
+.modal-close-btn:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    transform: rotate(90deg); /* Легкий эффект при наведении */
+}
+
+/* Создаем крестик с помощью псевдоэлементов */
+.modal-close-btn::before,
+.modal-close-btn::after {
+    content: '';
+    position: absolute;
+    width: 16px; /* Длина палочек крестика */
+    height: 2px;  /* Толщина палочек крестика */
+    background-color: var(--color-gray); /* Цвет крестика */
+    transition: background-color 0.3s ease;
+}
+.modal-close-btn:hover::before,
+.modal-close-btn:hover::after {
+    background-color: var(--color-black);
+}
+
+.modal-close-btn::before {
+    transform: rotate(45deg);
+}
+
+.modal-close-btn::after {
+    transform: rotate(-45deg);
+}
+
+.modal-icon {
+    margin-bottom: 20px;
+}
+.modal-icon img {
+    max-width: 150px; /* Размер иконки внутри модального окна */
+    height: auto;
+    margin: 0 auto; /* Центрируем */
+}
+
+.modal-title-text {
+    font-size: 1.8em;
+    color: var(--color-black);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.modal-subtitle {
+    font-size: 1em;
+    color: #555; /* Темно-серый для подзаголовка */
+    line-height: 1.5;
+    margin-bottom: 25px;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.modal-details-link.btn { /* Стили для кнопки "Подробнее" */
+    display: inline-block;
+    margin-top: 10px;
+    background-color: #F3F6FB; 
+    color: #377AFF;          
+    
+    padding: 10px 25px;
+    min-width: auto;
+    border-radius: 8px; /* Сохраняем скругление, если оно было у .btn */
+    font-weight: 500;   /* Сохраняем жирность, если была у .btn */
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Добавим transition для цвета текста */
+    border: 1px solid transparent; /* Убираем стандартную рамку, если она есть от .btn */
+    box-shadow: none; /* Убираем стандартную тень от .btn, если она есть и не нужна здесь */
+}
+
+.modal-details-link.btn:hover {
+    background-color: #dce1e7; 
+    color: #2a62d9;          
+    /* box-shadow: none; /* Убираем тень при наведении, если она есть от .btn */
+}
+
+/* Адаптивность для Блока 7 (Отзывы) */
+@media (max-width: 992px) { 
+    .reviews-summary {
+        align-items: center; 
+    }
+     .yandex-badge-container,
+     .rating-overview {
+        flex-basis: 45%; 
+        min-height: auto; 
+        max-width: none;  
+    }
+}
+
+@media (max-width: 768px) { 
+    .reviews-block .section-title { font-size: 2em; }
+    .reviews-summary {
+        flex-direction: column; 
+        gap: 25px;
+    }
+    .yandex-badge-container,
+    .rating-overview {
+        flex-basis: auto; 
+        width: 100%;     
+        max-width: 320px; 
+    }
+    .yandex-badge-image { width: 130px; }
+    .yandex-badge-title-link .yandex-badge-title { font-size: 1.1em; } /* Обновленный селектор */
+    .yandex-badge-subtitle { font-size: 0.85em; } /* Обновленный селектор */
+
+    .rating-overview { padding: 15px 20px; }
+    .rating-score { font-size: 2.2em; }
+    .rating-stars { font-size: 1.1em; }
+}
+
+@media (max-width: 480px) { 
+    .review-card { padding: 15px; }
+    .review-avatar {
+        width: 44px;
+        height: 44px;
+        margin-right: 10px;
+    }
+     .review-avatar img {
+        width: calc(100% - 4px); 
+        height: calc(100% - 4px);
+    }
+    .review-author-name { font-size: 0.95em; }
+    .review-source { font-size: 0.8em; }
+    .review-text { font-size: 0.9em; }
+
+    .yandex-badge-image { width: 110px; }
+    .yandex-badge-title-link .yandex-badge-title { font-size: 1em; } /* Обновленный селектор */
+    .yandex-badge-subtitle { font-size: 0.8em; } /* Обновленный селектор */
+    .rating-score { font-size: 2em; }
+}
+
+
+/* ==========================================================================
+   11. Блок 8: Контакты
+   ========================================================================== */
+.contacts-block { position: relative; }
+
+.contacts-vertical-text { position: absolute; left: 180px; top: 83%; transform: translateY(-50%) rotate(-90deg); transform-origin: left top; font-size: 2.8em; font-weight: bold; text-transform: uppercase; color: rgba(255, 255, 255, 0.15); letter-spacing: 2px; white-space: nowrap; z-index: 1; pointer-events: none; }
+.contacts-content { position: relative; z-index: 2; padding-left: 30px; /* Было '30', исправил на '30px' */ }
+.contacts-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; flex-wrap: wrap; gap: 20px; }
+.contacts-brand-text { font-size: 2.5em; font-weight: bold; color: var(--color-white); text-transform: uppercase; }
+.contact-location-tabs { margin-bottom: 0; /* Стили наследуются от .location-tabs */ }
+
+.map-info-area { display: flex; gap: 30px; align-items: flex-start; }
+.map-container { flex: 2; height: 450px; background-color: #222; border-radius: 10px; overflow: hidden; }
+#yandex-map [class*="ground-pane"] { filter: grayscale(1); }
+#yandex-map [class*="gotoymaps__container"],
+#yandex-map [class*="map-copyrights-promo"],
+#yandex-map [class*="gototaxi"] { display: none !important; }
+
+.contact-details { flex: 1; padding: 20px; background-color: rgba(255, 255, 255, 0.03); border-radius: 8px; display: flex; flex-direction: column; }
+.contact-detail-item { display: none; }
+.contact-detail-item.active { display: block; animation: fadeIn 0.4s ease; }
+.contact-details h4 { color: var(--color-accent); font-size: 1.2em; margin-bottom: 8px; }
+.contact-details p { margin-bottom: 15px; line-height: 1.6; color: var(--color-text); }
+.contact-details p:last-child { margin-bottom: 0; }
+
+.contact-socials { margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+.contact-socials h4 { color: var(--color-accent); font-size: 1.2em; margin-bottom: 12px; }
+.social-icons { display: flex; align-items: center; gap: 15px; justify-content: inherit; }
+.social-icons a { display: inline-block; line-height: 0; }
+.social-icons img { width: 32px; height: 32px; opacity: 0.8; transition: opacity 0.3s ease, transform 0.3s ease; }
+.social-icons a:hover img { opacity: 1; transform: scale(1.1); }
+
+/* ==========================================================================
+   12. Блок 9: FAQ
+   ========================================================================== */
+.faq-block .section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0; 
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.2em;
+    color: var(--color-white);
+    transition: color 0.2s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.faq-question:hover {
+    color: var(--color-accent);
+}
+
+.faq-question .faq-arrow {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s ease;
+    margin-left: 20px; /* Отступ для стрелки от текста вопроса */
+    flex-shrink: 0;
+}
+
+.faq-answer {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    color: var(--color-text);
+    line-height: 1.7;
+    transition: max-height 0.35s ease-in-out, opacity 0.3s ease-in-out, padding-top 0.35s ease-in-out, padding-bottom 0.35s ease-in-out;
+}
+
+.faq-answer-content {
+    padding: 20px 0 25px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.faq-answer p {
+    margin-bottom: 1em;
+}
+.faq-answer p:last-child {
+    margin-bottom: 0;
+}
+
+/* Стили для якорных ссылок в "капсуле" */
+.faq-answer a.faq-anchor-link {
+    display: inline-block;
+    background-color: #333; /* Новый цвет фона - серый */
+    color: var(--color-white);                     
+    padding: 2px 8px;
+    border-radius: 9px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.90em;
+    line-height: 1.4;
+    margin: 3px 2px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.faq-answer a.faq-anchor-link:hover {
+    background-color: #222222; 
+    color: var(--color-white);
+    transform: translateY(-1px);
+}
+
+
+/* Active state */
+.faq-question.active {
+    color: var(--color-accent);
+}
+
+.faq-question.active .faq-arrow {
+    transform: rotate(180deg);
+}
+
+.faq-answer.active {
+    max-height: 600px; 
+    opacity: 1;
+}
+
+/* Адаптивность для FAQ блока */
+@media (max-width: 768px) {
+    .faq-block .section-title {
+        font-size: 2em;
+    }
+    .faq-question {
+        padding: 15px 0;
+        font-size: 1.05em;
+    }
+    .faq-answer-content {
+        padding: 15px 0 20px 0;
+    }
+    .faq-answer a.faq-anchor-link {
+        padding: 3px 10px; /* Еще меньше для мобильных */
+        font-size: 0.9em;
+        border-radius: 14px;
+    }
+}
+
+
+/* ==========================================================================
+   13. Кнопка "Наверх"
+   ========================================================================== */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 999;
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-accent);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, background-color 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.scroll-to-top img {
+    width: 20px;
+    height: auto;
+}
+.scroll-to-top:hover {
+    background-color: #c73f00;
+}
+.scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ==========================================================================
+   14. Кастомная метка карты
+   ========================================================================== */
+.custom-placemark {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.7);
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 123, 0, 0.7); /* Оранжевое свечение в начале */
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 10px 15px rgba(255, 166, 0, 0); /* Расходящееся оранжевое свечение */
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 123, 0, 0); /* Исчезает */
+  }
+}
+
+.custom-placemark-layout {
+    position: relative;
+    width: 0;
+    height: 0;
+    transform: translate(-10px, -10px); /* Смещение для центрирования метки */
+}
+
+/* --- Глобальная Адаптивность для Шапки и Подвала --- */
+@media (max-width: 992px) {
+    .desktop-nav {
+        display: none;
+    }
+    .burger-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        position: absolute;
+        left: 40px;
+    }
+    .header-logo img {
+         height: 60px;
+    }
+    .header-container {
+         justify-content: center;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+     .footer-left, .footer-right {
+        flex-basis: 100%;
+        text-align: center;
+    }
+    .social-links { /* Если вернутся в футер */
+        text-align: center;
+        margin-top: 15px;
+    }
+    .social-links a {
+        margin: 0 10px;
+    }
+}
+
+/* Более мелкие мобильные экраны */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+    .header-container {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    .burger-menu {
+        left: 20px;
+    }
+    .header-logo img {
+         height: 50px;
+    }
+
+    /* Корректировки для специфичных блоков на мобильных (если нужно) */
+    .intro-paragraph {
+        text-align: left; /* Возвращаем для лучшей читаемости на узких */
+    }
+}

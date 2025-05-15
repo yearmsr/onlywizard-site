@@ -1,0 +1,80 @@
+[
+  {
+    "comment": "Скрыть все иконки по умолчанию",
+    "featureType": "all",
+    "elementType": "labels.icon",
+    "stylers": [ { "visibility": "off" } ]
+  },
+  {
+    "comment": "Скрыть все текстовые метки по умолчанию",
+    "featureType": "all",
+    "elementType": "labels.text",
+    "stylers": [ { "visibility": "off" } ]
+  },
+  {
+    "comment": "Сделать фон карты темным",
+    "featureType": "all",
+    "elementType": "geometry",
+    "stylers": [ { "color": "#000000" } ] 
+  },
+  {
+    "comment": "Явно скрыть POI",
+    "featureType": "poi",
+    "stylers": [ { "visibility": "off" } ]
+  },
+   {
+    "comment": "Явно скрыть Transit",
+    "featureType": "transit",
+    "stylers": [ { "visibility": "off" } ]
+  },
+  {
+    "comment": "Явно скрыть Ландшафт (парки и т.д.)",
+    "featureType": "landscape",
+     "stylers": [ { "visibility": "off" } ]
+     
+  },
+  {
+    "comment": "Явно скрыть Воду",
+     "featureType": "water",
+     "elementType": "geometry",
+     "stylers": [ { "color": "#0a0a0a" } ] 
+  },
+   {
+    "comment": "Явно скрыть Здания",
+    "featureType": "structure",
+    "stylers": [ { "visibility": "off" } ]
+  },
+  {
+    "comment": "Сделать административные границы почти невидимыми",
+    "featureType": "administrative",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      { "color": "#252525" }, 
+      { "weight": 0.5 }
+    ]
+  },
+  {
+    "comment": "Оставить видимыми только крупные населенные пункты (опционально)",
+    "featureType": "administrative.locality",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      { "visibility": "on" },
+      { "color": "#606060" }
+    ]
+   },
+   {
+    "comment": "Стилизация ДОРОГ - ОРАНЖЕВЫЕ",
+    "featureType": "road",
+    "elementType": "geometry.fill",
+    "stylers": [
+      { "visibility": "on" },
+      { "color": "#FFA500" } 
+    ]
+  },
+  {
+    "comment": "Скрытие обводки дорог",
+    "featureType": "road",
+    "elementType": "geometry.stroke",
+    "stylers": [ { "visibility": "off" } ]
+  }
+]
